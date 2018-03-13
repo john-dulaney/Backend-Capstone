@@ -1,5 +1,6 @@
 // Imports
 import React, { Component } from "react";
+import ChecklistCSS from '../styles/ChecklistCSS.css';
 
 class ChecklistApi extends React.Component {
     constructor(props) {
@@ -43,9 +44,10 @@ class ChecklistApi extends React.Component {
       } else {
         return (
           <ul>
+            Random list of things because i can crud:
             {items.map(item => (
-              <li key={item.ChecklistItemId}>
-                {item.ChecklistAction} {item.TripTypeId} {item.TripType}
+              <li key={item.checklistItemId}>
+                {item.checklistAction} {item.tripTypeId} {item.tripType}
               </li>
             ))}
           </ul>

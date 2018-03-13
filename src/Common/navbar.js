@@ -1,5 +1,6 @@
 // Imports
 import React, { Component } from "react";
+import palm from './palm.png';
 import {
   Nav,
   Navbar,
@@ -14,10 +15,10 @@ import {
 class NavBar extends React.Component {
   render() {
     return (
-      <Navbar inverse collapseOnSelect className="nav">
+      <Navbar inverse collapseOnSelect className="nav staticTop">
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#brand">Triplann</a>
+          <a href="#"><img src={palm} className="App-logo" alt="logo" /></a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

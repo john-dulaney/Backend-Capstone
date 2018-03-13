@@ -1,21 +1,25 @@
-class MyComponent extends React.Component {
+// Imports
+import React, { Component } from "react";
+
+class TripApi extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         error: null,
         isLoaded: false,
-        items: []
+        trips: []
       };
     }
   
     componentDidMount() {
-      fetch("https://api.example.com/items")
+      fetch("http://localhost:5000/api/Trip")
         .then(res => res.json())
         .then(
           (result) => {
+            console.log(result)
             this.setState({
               isLoaded: true,
-              items: result.items
+              trips: result
             });
           },
           // Note: it's important to handle errors here
@@ -31,7 +35,7 @@ class MyComponent extends React.Component {
     }
   
     render() {
-      const { error, isLoaded, items } = this.state;
+      const { error, isLoaded, trips } = this.state;
       if (error) {
         return <div>Error: {error.message}</div>;
       } else if (!isLoaded) {
@@ -39,9 +43,9 @@ class MyComponent extends React.Component {
       } else {
         return (
           <ul>
-            {items.map(item => (
-              <li key={item.name}>
-                {item.name} {item.price}
+            {trips.map(trip => (
+              <li key={trip.tripId}>
+                {trip.location} {trip.duration} {trip.tripTypeId} {trip.tripType}
               </li>
             ))}
           </ul>
@@ -49,3 +53,4 @@ class MyComponent extends React.Component {
       }
     }
   }
+  export default TripApi
