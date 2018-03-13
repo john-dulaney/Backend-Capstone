@@ -1,16 +1,46 @@
+// Imports
 import React, { Component } from 'react';
+import {Nav, Navbar, NavItem, NavDropdown, MenuItem, Tabs, ButtonToolbar, Button, Table, ButtonGroup, Row, Col, Grid, Panel, FormGroup, FormControl} from 'react-bootstrap'
+import Login from './loginForm';
 
 class NavBar extends React.Component {
   render() {
     return (
-      <div>
-        <ul>
-          <a onClick={() => this.push('page1') }>Page 1</a>
-          <a onClick={() => this.push('page2') }>Page 2</a>
-        </ul>
-      </div>
-    )
-  }
+    <Navbar inverse collapseOnSelect className="nav">
+      <Navbar.Header>
+        <Navbar.Brand>
+          <a href="#brand">Triplann</a>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <NavItem eventKey={1} href="CreateNewTrip.js">
+          Plan A New Trip to Take
+          </NavItem>
+          <NavItem eventKey={2} href="SavedTripsDashboard.js">
+          View Saved Trip Checklists
+          </NavItem>
+          {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+            <MenuItem eventKey={3.1}>Plan A New Trip to Take</MenuItem>
+            <MenuItem eventKey={3.2}>View Saved Trip Checklists</MenuItem>
+            <MenuItem eventKey={3.3}>.</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey={3.3}>.</MenuItem>
+          </NavDropdown> */}
+        </Nav>
+        <Nav pullRight>
+          <NavItem eventKey={1} href="loginForm.js">
+            Login
+          </NavItem>
+          <NavItem eventKey={2} href="createAccount.js">
+            Create Account
+          </NavItem>
+        </Nav>
+      </Navbar.Collapse>
+      </Navbar>
+    );
+  };
 };
 export default NavBar;
 
@@ -18,23 +48,10 @@ export default NavBar;
 
 // Boot Strap example
 
-// <Nav bsStyle="tabs" activeKey="1" onSelect={k => this.handleSelect(k)}>
-//   <NavItem eventKey="1" href="/home">
-//     NavItem 1 content
-//   </NavItem>
-//   <NavItem eventKey="2" title="Item">
-//     NavItem 2 content
-//   </NavItem>
-//   <NavItem eventKey="3" disabled>
-//     NavItem 3 content
-//   </NavItem>
-//   <NavDropdown eventKey="4" title="Dropdown" id="nav-dropdown">
-//     <MenuItem eventKey="4.1">Action</MenuItem>
-//     <MenuItem eventKey="4.2">Another action</MenuItem>
-//     <MenuItem eventKey="4.3">Something else here</MenuItem>
-//     <MenuItem divider />
-//     <MenuItem eventKey="4.4">Separated link</MenuItem>
-//   </NavDropdown>
-// </Nav>
 
-// render(<NavBar />);
+{/* <div>
+  <ul>
+    <a onClick={() => this.push('page1') }>Page 1</a>
+    <a onClick={() => this.push('page2') }>Page 2</a>
+  </ul>
+</div> */}

@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.nav {
+  padding: 50px;
+  display: inline;
+  color: white;
+}
+.navtitle {
+  font-size: 22px;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
