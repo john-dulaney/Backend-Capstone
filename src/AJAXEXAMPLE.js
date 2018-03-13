@@ -10,7 +10,7 @@ export default class UserList extends React.Component {
     }
   
     UserList() {
-      $.getJSON('https://randomuser.me/api/')
+      $.getJSON('http://localhost:8080/api/')
         .then(({ results }) => this.setState({ person: results }));
     }
   
