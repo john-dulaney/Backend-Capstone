@@ -1,4 +1,7 @@
-class MyComponent extends React.Component {
+// Imports
+import React, { Component } from "react";
+
+class ChecklistApi extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -9,13 +12,14 @@ class MyComponent extends React.Component {
     }
   
     componentDidMount() {
-      fetch("https://api.example.com/items")
+      fetch("http://localhost:5000/api/ChecklistItem")
         .then(res => res.json())
         .then(
           (result) => {
+            console.log(result)
             this.setState({
               isLoaded: true,
-              items: result.items
+              items: result
             });
           },
           // Note: it's important to handle errors here
@@ -40,8 +44,8 @@ class MyComponent extends React.Component {
         return (
           <ul>
             {items.map(item => (
-              <li key={item.name}>
-                {item.name} {item.price}
+              <li key={item.ChecklistItemId}>
+                {item.ChecklistAction} {item.TripTypeId} {item.TripType}
               </li>
             ))}
           </ul>
@@ -49,3 +53,4 @@ class MyComponent extends React.Component {
       }
     }
   }
+export default ChecklistApi
