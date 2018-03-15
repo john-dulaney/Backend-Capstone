@@ -27,7 +27,7 @@ class ChecklistApi extends React.Component {
           // instead of a catch() block so that we don't swallow
           // exceptions from actual bugs in components.
           (error) => {
-            this.setState({
+            this.setState({ 
               isLoaded: true,
               error
             });
