@@ -15,6 +15,7 @@ class LoginForm extends Component {
     return (
       <div className="pa4-l">
         <label className="f6 b db mb2 tc">
+        aasdf
         </label>
         <form className="bg-light-red mw7 center ph1 pv4 br2-ns ba b--black-10">
           <fieldset className="cf bn ma0 pa0">
