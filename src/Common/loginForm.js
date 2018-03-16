@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import AppState from "../Appstate";
+
+
 class LoginForm extends Component {
   // construct what this module deals with
   constructor(props) {
@@ -15,9 +17,10 @@ class LoginForm extends Component {
   }
   
   handleSubmit(event) {
+    debugger
     alert("This form actually worked: " + this.state.value);
     console.log("ayyy")
-    // event.preventDefault();
+    event.preventDefault();
 
     // User API Module Gets dinged here???
   }
