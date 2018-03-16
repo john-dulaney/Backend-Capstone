@@ -27,8 +27,8 @@ class App extends Component {
         {/* <Jumbotron /> */}
         <div className="">
         <ErrorBoundary>
+          <h3>Login</h3>
           <LoginForm header={state.AppHeader} update={this.props.setAppState} />
-          hello
         </ErrorBoundary>
           
         </div>
