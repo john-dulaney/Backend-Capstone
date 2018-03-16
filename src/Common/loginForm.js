@@ -16,6 +16,7 @@ class LoginForm extends Component {
   
   handleSubmit(event) {
     alert("This form actually worked: " + this.state.value);
+    console.log("ayyy")
     // event.preventDefault();
 
     // User API Module Gets dinged here???
