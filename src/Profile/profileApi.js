@@ -1,5 +1,6 @@
 // Imports
 import React, { Component } from "react";
+const path = require("path");
 
 class TripApi extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class TripApi extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/")
+    fetch("http://localhost:5000/api/AspNetUser")
       .then(res => res.json())
       .then(
         result => {

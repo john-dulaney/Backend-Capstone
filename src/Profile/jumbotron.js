@@ -17,7 +17,7 @@ class Jumbotron extends React.Component {
       <div>
         <h1>Make your travel planning easy!</h1>
         <p className="App-intro">
-        I drink your milkshake timothy dalton funny walk mexican casual style Fallen eyebrow basil fawlty sam elliott, funny walk great dictator casual style wario mexican middle eastern despot burt reynolds timothy dalton Fallen eyebrow I drink your milkshake casual style sam elliott basil fawlty, timothy dalton!
+      ALLAN PLEASE ADD CONTENT
         </p>
         <p>
           <Button bsStyle="primary">Learn more</Button>
