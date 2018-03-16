@@ -1,34 +1,58 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
+import AppState from "../Appstate";
 class LoginForm extends Component {
+  // React Handlers
   constructor(props) {
     super(props);
+
+    this.state = {
+      emailAddress: "",
+      Password: ""
+    };
     this.onChange = this.onChange.bind(this);
   }
+
+  componentDidMount() {
+    // this.emailAddress.focus();
+  }
+
   onChange(event) {
     this.props.update({
       updatedYet: true,
-      header: Object.assign({}, this.props.header, { text: event.target.value })
+      userInput: Object.assign({}, this.props.userInput, {
+        text: event.target.value
+      })
     });
   }
+
+  handleSubmit(event) {
+    alert("A name was submitted: " + this.state.value);
+    event.preventDefault();
+  }
+
+  // Actual Form Code
   render() {
     return (
-      <div className="pa4-l">
-        <label className="f6 b db mb2 tc">
-        aasdf
-        </label>
-        <form className="bg-light-red mw7 center ph1 pv4 br2-ns ba b--black-10">
-          <fieldset className="cf bn ma0 pa0">
-            <div className="cf">
-              <input
-                className="db f6 f5-l input-reset tc bn black-80 bg-white pa1 lh-solid w-100 w-60-ns center"
-                type="text"
-                value={this.props.header.text}
-                onChange={this.onChange}
-              />
-            </div>
-            <small className="i db tc">Go ahead and change me!</small>
-          </fieldset>
+      <div>
+        <form>
+          <label>
+            Email:
+            <input
+              autoFocus
+              type="text"
+              value={this.props.emailAddress}
+              onChange={this.props.onChange}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              type="text"
+              value={this.props.Password}
+              onChange={this.props.onChange}
+            />
+          </label>
+          <button>Create Account</button>
         </form>
       </div>
     );

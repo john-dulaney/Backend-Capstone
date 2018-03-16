@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 // import createHistory from "history/createBrowserHistory"
 import { browserHistory, Router, Route } from "react-router";
+import ErrorBoundary from "./Common/ErrorBoundary";
 
 // Browser Component imports
 import palm from "./Common/palm.png";
@@ -25,8 +26,11 @@ class App extends Component {
 
         {/* <Jumbotron /> */}
         <div className="">
+        <ErrorBoundary>
           <LoginForm header={state.AppHeader} update={this.props.setAppState} />
           hello
+        </ErrorBoundary>
+          
         </div>
 
 
