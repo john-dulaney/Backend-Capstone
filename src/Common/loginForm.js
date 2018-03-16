@@ -16,7 +16,7 @@ class LoginForm extends Component {
   
   handleSubmit(event) {
     alert("This form actually worked: " + this.state.value);
-    event.preventDefault();
+    // event.preventDefault();
 
     // User API Module Gets dinged here???
   }
@@ -26,7 +26,7 @@ class LoginForm extends Component {
     return (
       <div>
         <form 
-          onSubmit={handleSubmit()}
+          onSubmit={this.handleSubmit}
         >
           <div>
             <label>
