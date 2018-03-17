@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AppState from "../Appstate";
-
+import "../styles/form.css";
 
 class LoginForm extends Component {
   // construct what this module deals with
@@ -9,20 +9,34 @@ class LoginForm extends Component {
     this.state = {
       emailAddress: "",
       Password: ""
+
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    // React.createRef()
   }
+
+  
 
   componentDidMount() {
     // On page load
   }
+
+  onChangeEmail(event) {
+    this.setState({emailAddress: event.target.value})
+  }
+  onChangePassword(event) {
+    this.setState({Password: event.target.value})
+  }
   
-  handleSubmit(event) {
-    debugger
-    alert("This form actually worked: " + this.state.value);
-    console.log("ayyy")
+  handleSubmit(event)  {
+    console.log(this.state.emailAddress)
+
+    console.log(this.state.Password) 
     event.preventDefault();
 
-    // User API Module Gets dinged here???
+    // User API  Module Gets dinged here???
   }
   
   // Actual Form Code
@@ -39,7 +53,7 @@ class LoginForm extends Component {
                 autoFocus
                 type="text"
                 value={this.props.emailAddress}
-                onChange={this.props.onChange}
+                onChange={this.onChangeEmail}
               />
             </label>
           </div>
@@ -50,7 +64,7 @@ class LoginForm extends Component {
               <input
                 type="text"
                 value={this.props.Password}
-                onChange={this.props.onChange}
+                onChange={this.onChangePassword}
               />
             </label>
           </div>
@@ -64,6 +78,6 @@ class LoginForm extends Component {
       </div>
     );
   }
-}
+};
 
 export default LoginForm;
