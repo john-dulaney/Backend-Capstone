@@ -1,19 +1,66 @@
+import React, { Component } from "react";
+import AppState from "../Appstate";
+class LoginForm extends Component {
+  // construct what this module deals with
+  constructor(props) {
+    super(props);
+    this.state = {
+      emailAddress: "",
+      Password: ""
+    };
+  }
 
-import React, { Component } from 'react';
+  componentDidMount() {
+    // On page load
+  }
+  
+  handleSubmit(event) {
+    alert("This form actually worked: " + this.state.value);
+    console.log("ayyy")
+    // event.preventDefault();
 
-class Login extends Component {
+    // User API Module Gets dinged here???
+  }
+  
+  // Actual Form Code
   render() {
     return (
-        <div>
-          <form>
-            <h3>{this.props.UserName}</h3>
-            <h3>{this.props.Password}</h3>
-            <button>Login</button>
-          </form>
-            <a>{this.props.Register}</a>
-        </div>
-    )
+      <div>
+        <form 
+          onSubmit={this.handleSubmit}
+        >
+          <div>
+            <label>
+              Email:
+              <input
+                autoFocus
+                type="text"
+                value={this.props.emailAddress}
+                onChange={this.props.onChange}
+              />
+            </label>
+          </div>
+
+          <div>
+            <label>
+              Password:
+              <input
+                type="text"
+                value={this.props.Password}
+                onChange={this.props.onChange}
+              />
+            </label>
+          </div>
+          <button
+            type="submit"
+            value="Login"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    );
   }
 }
 
-export default Login;
+export default LoginForm;
