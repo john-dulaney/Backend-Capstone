@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import AppState from '../Appstate';
 import '../styles/form.css';
 
@@ -14,6 +15,7 @@ class LoginForm extends Component {
     // 2. get the text from that input
     const userEmail = this.myInputEmail.value.value;
     const userPassword = this.myInputPassword.value.value;
+    
     console.log(this.myInputEmail.value.value);
     console.log(this.myInputPassword.value.value);
     // 3. Change the page to /store/whatever-they-entered
