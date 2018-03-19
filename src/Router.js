@@ -18,3 +18,25 @@ const Router = () => (
 );
 
 export default Router;
+const routes = {
+  // base component (wrapper for the whole application).
+  component: Base,
+  childRoutes: [
+
+    {
+      path: '/',
+      component: HomePage
+    },
+
+    {
+      path: '/login',
+      component: LoginPage
+    },
+
+    {
+      path: '/signup',
+      component: SignUpPage
+    }
+
+  ]
+};

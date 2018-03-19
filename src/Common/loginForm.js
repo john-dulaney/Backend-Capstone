@@ -3,30 +3,35 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import AppState from '../Appstate';
 import '../styles/form.css';
 
+
 class LoginForm extends Component {
   emailRef = React.createRef();
   passwordRef = React.createRef();
+
+
+  // static propTypes = {
+  //   addUser: PropTypes.func
+  // };
 
   // This function handles the login form actions on button click.
   logUserInHandler = event => {
     // Stop the form from submitting
     event.preventDefault();
-    // get the text from that input create a user object
-    debugger
-    const user = {
-      email: this.emailRef.value,
-      password: this.passwordRef.value
-    };
-    // login the user object
-    this.props.loginUser(user)
-    // const userPassword = this.passwordRef.value.value;
-    console.log(user);
-    // Change the page to /dashboard/whatever-they-entered
-    this.props.history.push(`/dashboard/${user}`);
-    // form reset
-    event.currentTarget.reset();
-  };
 
+    // get the text from that input create a user object
+    const user = {
+      email: this.emailRef.current.value,
+      password: this.passwordRef.current.value
+    }
+      console.log(user);
+
+      // login the user object
+      this.props.loginUser(user)
+      // Change the page to /dashboard/whatever-they-entered
+      this.props.history.push(`/dashboard/${user}`);
+      // form reset
+      event.currentTarget.reset();
+  };
   // Render block
   render() {
     return (
@@ -45,7 +50,7 @@ class LoginForm extends Component {
               <input type="text" required ref={this.passwordRef} />
             </label>
           </div>
-          <button type="submit" value="Login">
+          <button type="submit">
             Login →
           </button>
         </form>

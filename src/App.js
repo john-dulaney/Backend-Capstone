@@ -16,7 +16,6 @@ import NavBar from './Common/Navbar';
 import LoginForm from './Common/LoginForm';
 import './styles/App.css';
 
-
 // Class Begin
 class App extends Component {
   render() {
