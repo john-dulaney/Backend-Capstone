@@ -24,13 +24,13 @@ class App extends Component {
         <ErrorBoundary>
           <NavBar />
           <div className="">
-              <Jumbotron />
+            <Jumbotron />
             <h3>Login</h3>
             <LoginForm />
           </div>
         </ErrorBoundary>
       </div>
-    )
+    );
   }
 }
 export default App;

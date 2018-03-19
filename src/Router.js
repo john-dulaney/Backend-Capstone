@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./App";
-import NotFound from "./NotFound";
+import NotFound from "./Common/NotFound";
 import LoginForm from './Common/LoginForm';
+import Dashboard from './Home/Dashboard';
 
 
 const Router = () => (
@@ -10,7 +11,7 @@ const Router = () => (
     <Switch>
       <Route exact path="/" component={LoginForm} />
       <Route path="/dashboard/:userId" component={Dashboard} />
-      <Route path="/checl/:userId" component={App} />
+      <Route path="/checlist/:userId" component={App} />
       <Route path="/home/:userId" component={App} />
       <Route component={NotFound} />
     </Switch>
@@ -18,25 +19,25 @@ const Router = () => (
 );
 
 export default Router;
-const routes = {
-  // base component (wrapper for the whole application).
-  component: Base,
-  childRoutes: [
+// const routes = {
+//   // base component (wrapper for the whole application).
+//   component: Base,
+//   childRoutes: [
 
-    {
-      path: '/',
-      component: HomePage
-    },
+//     {
+//       path: '/',
+//       component: HomePage
+//     },
 
-    {
-      path: '/login',
-      component: LoginPage
-    },
+//     {
+//       path: '/login',
+//       component: LoginPage
+//     },
 
-    {
-      path: '/signup',
-      component: SignUpPage
-    }
+//     {
+//       path: '/signup',
+//       component: SignUpPage
+//     }
 
-  ]
-};
+//   ]
+// };

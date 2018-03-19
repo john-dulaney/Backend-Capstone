@@ -3,14 +3,13 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import AppState from '../Appstate';
 import '../styles/form.css';
 import Router from '../Router';
-import RegisterForm from '../Profile/RegisterForm';
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   emailRef = React.createRef();
   passwordRef = React.createRef();
 
   // This function handles the login form actions on button click.
-  logUserInHandler = event => {
+  RegisterNewUserHandler = event => {
     // Stop the form from submitting
     event.preventDefault();
 
@@ -21,7 +20,7 @@ class LoginForm extends Component {
     };
     console.log(user);
     // login the user object
-    // this.props.loginUser(user);
+    this.props.loginUser(user);
     // Change the page to /dashboard/whatever-they-entered
     this.props.history.push(`/dashboard/${user}`);
     // form reset
@@ -31,7 +30,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.logUserInHandler}>
+        <form onSubmit={this.RegisterNewUserHandler}>
           <div>
             <label>
               Email:
@@ -45,17 +44,11 @@ class LoginForm extends Component {
               <input type="password" required ref={this.passwordRef} />
             </label>
           </div>
-          <button type="submit">Login →</button>
-          <br/>
-          or
-          <br/>
-          <Router path="/register" component={RegisterForm} >
-          <button type="submit">Register New Account →</button>
-          </Router>
+          <button type="submit">Register! →</button>
         </form>
       </div>
     );
   }
 }
 
-export default LoginForm;
+export default RegisterForm;
