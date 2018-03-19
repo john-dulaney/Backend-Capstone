@@ -3,15 +3,9 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import AppState from '../Appstate';
 import '../styles/form.css';
 
-
 class LoginForm extends Component {
   emailRef = React.createRef();
   passwordRef = React.createRef();
-
-
-  // static propTypes = {
-  //   addUser: PropTypes.func
-  // };
 
   // This function handles the login form actions on button click.
   logUserInHandler = event => {
@@ -21,16 +15,15 @@ class LoginForm extends Component {
     // get the text from that input create a user object
     const user = {
       email: this.emailRef.current.value,
-      password: this.passwordRef.current.value
-    }
-      console.log(user);
-
-      // login the user object
-      this.props.loginUser(user)
-      // Change the page to /dashboard/whatever-they-entered
-      this.props.history.push(`/dashboard/${user}`);
-      // form reset
-      event.currentTarget.reset();
+      password: this.passwordRef.current.value,
+    };
+    console.log(user);
+    // login the user object
+    this.props.loginUser(user);
+    // Change the page to /dashboard/whatever-they-entered
+    this.props.history.push(`/dashboard/${user}`);
+    // form reset
+    event.currentTarget.reset();
   };
   // Render block
   render() {
@@ -50,9 +43,7 @@ class LoginForm extends Component {
               <input type="text" required ref={this.passwordRef} />
             </label>
           </div>
-          <button type="submit">
-            Login →
-          </button>
+          <button type="submit">Login →</button>
         </form>
       </div>
     );
@@ -60,20 +51,3 @@ class LoginForm extends Component {
 }
 
 export default LoginForm;
-
-// // construct what this module deals with
-// constructor(props) {
-//   super(props);
-//   this.state = {
-//     emailAddress: "",
-//     Password: ""
-//   };
-
-//   this.handleSubmit = this.handleSubmit.bind(this);
-//   this.onChangeEmail = this.onChangeEmail.bind(this);
-//   this.onChangePassword = this.onChangePassword.bind(this);
-//   // React.createRef()
-// }
-
- // firstName: this.firstNameRef.value.value,
-      // lastName: this.lastNameRef.value.value,

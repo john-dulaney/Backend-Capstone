@@ -11,6 +11,7 @@ class ChecklistApi extends React.Component {
         items: []
       };
     }
+
   
     componentDidMount() {
       fetch("http://localhost:5000/api/ChecklistItem")
