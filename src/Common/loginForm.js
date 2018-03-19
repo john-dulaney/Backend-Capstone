@@ -4,24 +4,28 @@ import AppState from '../Appstate';
 import '../styles/form.css';
 
 class LoginForm extends Component {
-  // --- Refactor starts here
-  myInputEmail = React.createRef();
-  myInputPassword = React.createRef();
+  emailRef = React.createRef();
+  passwordRef = React.createRef();
 
   // This function handles the login form actions on button click.
   logUserInHandler = event => {
-    // 1. Stop the form from submitting
+    // Stop the form from submitting
     event.preventDefault();
-    // 2. get the text from that input
-    const userEmail = this.myInputEmail.value.value;
-    const userPassword = this.myInputPassword.value.value;
-    
-    console.log(this.myInputEmail.value.value);
-    console.log(this.myInputPassword.value.value);
-    // 3. Change the page to /store/whatever-they-entered
-    this.props.history.push(`/dashboard/${userEmail}`);
+    // get the text from that input create a user object
+    debugger
+    const user = {
+      email: this.emailRef.value,
+      password: this.passwordRef.value
+    };
+    // login the user object
+    this.props.loginUser(user)
+    // const userPassword = this.passwordRef.value.value;
+    console.log(user);
+    // Change the page to /dashboard/whatever-they-entered
+    this.props.history.push(`/dashboard/${user}`);
+    // form reset
+    event.currentTarget.reset();
   };
-  // --- //
 
   // Render block
   render() {
@@ -31,14 +35,14 @@ class LoginForm extends Component {
           <div>
             <label>
               Email:
-              <input type="text" autoFocus required ref={this.myInputEmail} />
+              <input type="text" autoFocus required ref={this.emailRef} />
             </label>
           </div>
 
           <div>
             <label>
               Password:
-              <input type="text" autoFocus ref={this.myInputPassword} />
+              <input type="text" required ref={this.passwordRef} />
             </label>
           </div>
           <button type="submit" value="Login">
@@ -65,3 +69,6 @@ export default LoginForm;
 //   this.onChangePassword = this.onChangePassword.bind(this);
 //   // React.createRef()
 // }
+
+ // firstName: this.firstNameRef.value.value,
+      // lastName: this.lastNameRef.value.value,

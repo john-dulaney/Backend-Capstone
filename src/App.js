@@ -1,62 +1,40 @@
-// Funtionality Imports
-import React, { Component } from "react";
-// import createHistory from "history/createBrowserHistory"
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ErrorBoundary from "./Common/ErrorBoundary";
+import React, {Component} from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter,
+} from 'react-router-dom';
+import ErrorBoundary from './Common/ErrorBoundary';
+import palm from './Common/palm.png';
+import NavBar from './Common/Navbar';
+// import Jumbotron from './Profile/Jumbotron';
+// import DisplayCheckList from './Checklist/DisplayCheckList';
+// import ChecklistApi from './Checklist/ChecklistApi';
+// import TripApi from './Trips/TripApi';
+import LoginForm from './Common/LoginForm';
+import './styles/App.css';
 
-// Browser Component imports
-import palm from "./Common/palm.png";
-import NavBar from "./Common/Navbar";
-import Jumbotron from "./Profile/Jumbotron";
-import DisplayCheckList from "./Checklist/DisplayCheckList";
-import ChecklistApi from "./Checklist/ChecklistApi";
-import TripApi from "./Trips/TripApi";
-import LoginForm from "./Common/LoginForm";
-
-// styles
-import "./styles/App.css";
 
 // Class Begin
 class App extends Component {
-  state ={
-    user: {},
-    checklist: {},
-    trip: {}
-  }
   render() {
-    const state = this.props.appState;
     return (
       <div className="App">
-        <NavBar />
-        <header className="App-header" />
-
-        {/* <Jumbotron /> */}
-        <div className="">
         <ErrorBoundary>
-          <h3>Login</h3>
-          <LoginForm header={state.AppHeader} update={this.props.setAppState} />
-        </ErrorBoundary>
-          
-        </div>
-
-
-
-
-        <div className="" style={{ background: "green" }}>
-          <div
-            onMouseEnter={e => {
-              this.props.setAppState({ hoverText: "ay watup" });
-            }}
-            onMouseLeave={e => {
-              this.props.setAppState({ hoverText: false });
-            }}
-          >
+          <NavBar />
+          <div className="">
+            <h3>Login</h3>
+            <LoginForm />
           </div>
-        </div>
-        {/* <ChecklistApi pullRight/> */}
-        {/* <TripApi pullLeft/> */}
+        </ErrorBoundary>
       </div>
-    );
+    )
   }
 }
 export default App;
+
+// <Jumbotron />
+// <ChecklistApi pullRight/>
+// <TripApi pullLeft/>
