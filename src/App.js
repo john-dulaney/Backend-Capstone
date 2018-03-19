@@ -1,7 +1,7 @@
 // Funtionality Imports
 import React, { Component } from "react";
 // import createHistory from "history/createBrowserHistory"
-import { browserHistory, Router, Route } from "react-router";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ErrorBoundary from "./Common/ErrorBoundary";
 
 // Browser Component imports
@@ -12,11 +12,17 @@ import DisplayCheckList from "./Checklist/DisplayCheckList";
 import ChecklistApi from "./Checklist/ChecklistApi";
 import TripApi from "./Trips/TripApi";
 import LoginForm from "./Common/LoginForm";
+
 // styles
 import "./styles/App.css";
 
 // Class Begin
 class App extends Component {
+  state ={
+    user: {},
+    checklist: {},
+    trip: {}
+  }
   render() {
     const state = this.props.appState;
     return (
