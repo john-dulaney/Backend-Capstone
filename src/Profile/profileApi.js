@@ -1,6 +1,6 @@
 // Imports
-import React, { Component } from "react";
-const path = require("path");
+import React, {Component} from 'react';
+const path = require('path');
 
 class TripApi extends React.Component {
   constructor(props) {
@@ -8,44 +8,42 @@ class TripApi extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      trips: []
+      trips: [],
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:5000/api/AspNetUser/")
-      .then(res => res.json())
-      .then(
-        result => {
-          console.log(result);
-          this.setState({
-            isLoaded: true,
-            trips: result
-          });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
+    fetch('http://localhost:5000/api/AspNetUsers', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin',
+    }).then(
+      function(response) {
+        return response.text();
+      },
+      function(error) {
+        error.message; //=> String
+      }
+    );
   }
 
   render() {
-    const { error, isLoaded, trips } = this.state;
+    const {error, isLoaded, trips} = this.state;
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return (
+        <div>
+          Error: {error.message}
+        </div>
+      );
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
         <ul>
-          {trips.map(trip => (
-            <li key={trip.tripId}>
-              {trip.location} {trip.duration} {trip.tripTypeId} {trip.tripType}
-            </li>
-          ))}
+          SHITS POSTED
         </ul>
       );
     }

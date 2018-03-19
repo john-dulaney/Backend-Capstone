@@ -9,7 +9,7 @@ import {
 import ErrorBoundary from './Common/ErrorBoundary';
 import palm from './Common/palm.png';
 import NavBar from './Common/Navbar';
-// import Jumbotron from './Profile/Jumbotron';
+import Jumbotron from './Profile/Jumbotron';
 // import DisplayCheckList from './Checklist/DisplayCheckList';
 // import ChecklistApi from './Checklist/ChecklistApi';
 // import TripApi from './Trips/TripApi';
@@ -24,6 +24,7 @@ class App extends Component {
         <ErrorBoundary>
           <NavBar />
           <div className="">
+              <Jumbotron />
             <h3>Login</h3>
             <LoginForm />
           </div>
@@ -34,6 +35,5 @@ class App extends Component {
 }
 export default App;
 
-// <Jumbotron />
 // <ChecklistApi pullRight/>
 // <TripApi pullLeft/>

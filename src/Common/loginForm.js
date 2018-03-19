@@ -33,17 +33,21 @@ class LoginForm extends Component {
           <div>
             <label>
               Email:
-              <input type="text" autoFocus required ref={this.emailRef} />
+              <input type="email" autoFocus required ref={this.emailRef} />
             </label>
           </div>
 
           <div>
             <label>
               Password:
-              <input type="text" required ref={this.passwordRef} />
+              <input type="password" required ref={this.passwordRef} />
             </label>
           </div>
           <button type="submit">Login →</button>
+          <br/>
+          or
+          <br/>
+          <button type="submit">Register New Account →</button>
         </form>
       </div>
     );
