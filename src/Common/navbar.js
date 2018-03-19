@@ -12,7 +12,7 @@ import {
   ButtonGroup,
 } from "react-bootstrap";
 
-class NavBar extends React.Component {
+class NavBar extends Component {
   render() {
     return (
       <Navbar inverse collapseOnSelect className="nav staticTop">
