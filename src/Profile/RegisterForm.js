@@ -32,32 +32,21 @@ class RegisterForm extends Component {
 
     xhr.onload = function() {
       debugger
-      let data = xhr.responseText
-      // console.log(data)
-      // localStorage.setItem("token", token);
+      let token = xhr.responseText
+      console.log(token)
+      localStorage.setItem("token", token);
     }
     xhr.send();
   };
 
-  componentDidMount() {
-    // this.loadUsers();
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
-
-    // const newUserInfo = {
-    //   emailAddress: this.state.emailAddress,
-    //   password: this.state.password,
-    // };
-
     this.registerUser();
-
   }
 
 
   handleFormFieldChange = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const stateToChange = {};
     stateToChange[event.target.id] = event.target.value;
 
@@ -112,7 +101,6 @@ class RegisterForm extends Component {
 
           <button>Register</button>
         </form>
-        {/* <UserList contactList={this.state.contactList} loadingMsg={this.state.contactLoadingMsg} /> */}
       </div>
     );
   }
