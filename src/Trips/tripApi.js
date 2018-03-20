@@ -1,7 +1,7 @@
 // Imports
 import React, { Component } from "react";
 
-class TripApi extends React.Component {
+class TripApi extends Component {
   constructor(props) {
     super(props);
     this.state = {

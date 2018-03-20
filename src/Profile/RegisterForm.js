@@ -8,7 +8,7 @@ class RegisterForm extends Component {
     this.state = {
       userList: [],
       firstName: '',
-      lastName: '',
+      lastName: '', 
       emailAddress: '',
       password: '',
       remoteURL: `http://localhost:5000/api/token`,
@@ -26,16 +26,16 @@ class RegisterForm extends Component {
     let xhr = new XMLHttpRequest();
     xhr.open(
       'POST',
-      `${this.state.remoteURL}/${this.state.emailAddress}?${this.state.password}`
+      `${this.state.remoteURL}?username=${this.state.emailAddress}&firstName=${this.state.firstName}&lastName=${this.state.lastName}&password=${this.state.password}`,
+      true
     );
 
     xhr.onload = function() {
-      let data = JSON.parse(xhr.responseText);
+      debugger
+      let data = xhr.responseText
+      // console.log(data)
       // localStorage.setItem("token", token);
     }
-      .bind(this)
-      .then(console.log(this));
-
     xhr.send();
   };
 
@@ -46,40 +46,55 @@ class RegisterForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const newUserInfo = {
-      emailAddress: this.state.emailAddress,
-      password: this.state.password,
-    };
+    // const newUserInfo = {
+    //   emailAddress: this.state.emailAddress,
+    //   password: this.state.password,
+    // };
 
     this.registerUser();
 
   }
+
 
   handleFormFieldChange = (event) => {
     // event.preventDefault();
     const stateToChange = {};
     stateToChange[event.target.id] = event.target.value;
 
-    // this.setState(stateToChange)
+    this.setState(stateToChange)
   }
 
   render() {
     return (
-      <div className="RegisterUser">
+      <div className="RegisterForm">
         <form onSubmit={this.handleSubmit}>
           <div>
           <input
             type="text"
-            // value={this.state.emailAddress}
+            value={this.state.emailAddress}
             onChange={this.handleFormFieldChange}
             placeholder="Enter your email address"
             id="emailAddress"
+          />
+          <input
+            type="text"
+            value={this.state.firstName}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your first name"
+            id="firstName"
+          />
+          <input
+            type="text"
+            value={this.state.lastName}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your last name"
+            id="lastName"
           />
           </div>
           <div>
           <input
             type="text"
-            // value={this.state.password}
+            value={this.state.password}
             onChange={this.handleFormFieldChange}
             placeholder="Enter your password"
             id="password"
@@ -89,7 +104,7 @@ class RegisterForm extends Component {
           <input
             type="text"
             // value={this.state.emailAddress}
-            // onChange={this.handleFormFieldChange}
+            onChange={this.handleFormFieldChange}
             placeholder="Confirm your password"
             id="confirmPassword"
           />

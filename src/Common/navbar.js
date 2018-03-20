@@ -7,7 +7,6 @@ import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 import LoginForm from './LoginForm';
 import Dashboard from '../Home/Dashboard';
-import SteveWay from '../Profile/SteveWay';
 import ChecklistApi from '../Checklist/ChecklistApi';
 import RegisterForm from '../Profile/RegisterForm';
 import TripApi from '../Trips/TripApi';

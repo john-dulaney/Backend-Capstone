@@ -13,11 +13,11 @@ class LoginForm extends Component {
     event.preventDefault();
 
     // get the text from that input create a user object
-    const user = {
-      email: this.emailRef.current.value,
-      password: this.passwordRef.current.value,
-    };
-    console.log(user);
+    // const user = {
+    //   email: this.emailRef.current.value,
+    //   password: this.passwordRef.current.value,
+    // };
+    // console.log(user);
     // login the user object
     // this.props.loginUser(user);
     // Change the page to /dashboard/whatever-they-entered

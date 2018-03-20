@@ -3,8 +3,9 @@ import {
 } from 'react-router-dom';
 import ErrorBoundary from './Common/ErrorBoundary';
 import NavBar from './Common/Navbar';
-import LoginForm from './Common/LoginForm';
+// import LoginForm from './Common/LoginForm';
 import './styles/App.css';
+import RegisterForm from './Profile/RegisterForm';
 
 // Class Begin
 class App extends Component {
@@ -14,8 +15,8 @@ class App extends Component {
         <ErrorBoundary>
           <NavBar />
           <div className="">
-            <h3>Login</h3>
-            <LoginForm />
+            <h3>Register</h3>
+            <RegisterForm />
           </div>
         </ErrorBoundary>
       </div>
