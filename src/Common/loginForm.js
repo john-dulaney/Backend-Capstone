@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import AppState from '../Appstate';
 import '../styles/form.css';
 import Router from '../Router';
 import RegisterForm from '../Profile/RegisterForm';

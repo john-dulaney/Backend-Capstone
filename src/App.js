@@ -1,18 +1,8 @@
 import React, {Component} from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter,
 } from 'react-router-dom';
 import ErrorBoundary from './Common/ErrorBoundary';
-import palm from './Common/palm.png';
 import NavBar from './Common/Navbar';
-import Jumbotron from './Profile/Jumbotron';
-// import DisplayCheckList from './Checklist/DisplayCheckList';
-// import ChecklistApi from './Checklist/ChecklistApi';
-// import TripApi from './Trips/TripApi';
 import LoginForm from './Common/LoginForm';
 import './styles/App.css';
 
@@ -24,7 +14,6 @@ class App extends Component {
         <ErrorBoundary>
           <NavBar />
           <div className="">
-            <Jumbotron />
             <h3>Login</h3>
             <LoginForm />
           </div>
@@ -34,6 +23,3 @@ class App extends Component {
   }
 }
 export default App;
-
-// <ChecklistApi pullRight/>
-// <TripApi pullLeft/>
