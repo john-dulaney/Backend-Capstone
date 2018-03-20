@@ -1,40 +1,76 @@
 import React, {Component} from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter,
-} from 'react-router-dom';
 import ErrorBoundary from './Common/ErrorBoundary';
-import palm from './Common/palm.png';
 import NavBar from './Common/Navbar';
-// import Jumbotron from './Profile/Jumbotron';
-// import DisplayCheckList from './Checklist/DisplayCheckList';
-// import ChecklistApi from './Checklist/ChecklistApi';
-// import TripApi from './Trips/TripApi';
-import LoginForm from './Common/LoginForm';
 import './styles/App.css';
+import RegisterForm from './Profile/RegisterForm';
+
 
 
 // Class Begin
 class App extends Component {
+
+
+
+
+componentDidMount() {
+  this.getSavedToken()
+}
+
+  getSavedToken()  {
+    const _token = {token: localStorage.getItem("token")}
+    this.setState(_token,() => this.isUserLoggedIn());
+    
+  }
+
+  isUserLoggedIn(){
+   
+    if (localStorage.getItem("token") !== null) {
+      fetch (`http://localhost:5000/api/token`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem("token")
+        }
+      }).then(result =>{
+
+        if(result.ok) {
+          return result.json();
+        } else {
+          return { 
+            username: null
+          }
+        }
+      }).then(r => {
+        this.setState({
+          userLoggedIn: r.username
+        })
+      })
+    } else {
+      this.setState({
+        userLoggedIn: null
+      }) 
+    }
+
+  }        
+
+
+
+
+
+
+
   render() {
     return (
       <div className="App">
         <ErrorBoundary>
           <NavBar />
           <div className="">
-            <h3>Login</h3>
-            <LoginForm />
+            <h3>Register</h3>
+            <RegisterForm />
           </div>
         </ErrorBoundary>
       </div>
-    )
+    );
   }
 }
 export default App;
-
-// <Jumbotron />
-// <ChecklistApi pullRight/>
-// <TripApi pullLeft/>

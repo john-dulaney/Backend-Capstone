@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import AppState from '../Appstate';
 import '../styles/form.css';
+import Router from '../Router';
+import RegisterForm from '../Profile/RegisterForm';
 
 class LoginForm extends Component {
   emailRef = React.createRef();
@@ -11,22 +11,19 @@ class LoginForm extends Component {
   logUserInHandler = event => {
     // Stop the form from submitting
     event.preventDefault();
+
     // get the text from that input create a user object
-    debugger
-    const user = {
-      email: this.emailRef.value,
-      password: this.passwordRef.value
-    };
+    // const user = {
+    //   email: this.emailRef.current.value,
+    //   password: this.passwordRef.current.value,
+    // };
+    // console.log(user);
     // login the user object
-    this.props.loginUser(user)
-    // const userPassword = this.passwordRef.value.value;
-    console.log(user);
+    // this.props.loginUser(user);
     // Change the page to /dashboard/whatever-they-entered
-    this.props.history.push(`/dashboard/${user}`);
     // form reset
     event.currentTarget.reset();
   };
-
   // Render block
   render() {
     return (
@@ -35,19 +32,23 @@ class LoginForm extends Component {
           <div>
             <label>
               Email:
-              <input type="text" autoFocus required ref={this.emailRef} />
+              <input type="email" autoFocus required ref={this.emailRef} />
             </label>
           </div>
 
           <div>
             <label>
               Password:
-              <input type="text" required ref={this.passwordRef} />
+              <input type="password" required ref={this.passwordRef} />
             </label>
           </div>
-          <button type="submit" value="Login">
-            Login →
-          </button>
+          <button type="submit">Login →</button>
+          <br/>
+          or
+          <br/>
+          <Router path="/register" component={RegisterForm} >
+          <button type="submit">Register New Account →</button>
+          </Router>
         </form>
       </div>
     );
@@ -55,20 +56,3 @@ class LoginForm extends Component {
 }
 
 export default LoginForm;
-
-// // construct what this module deals with
-// constructor(props) {
-//   super(props);
-//   this.state = {
-//     emailAddress: "",
-//     Password: ""
-//   };
-
-//   this.handleSubmit = this.handleSubmit.bind(this);
-//   this.onChangeEmail = this.onChangeEmail.bind(this);
-//   this.onChangePassword = this.onChangePassword.bind(this);
-//   // React.createRef()
-// }
-
- // firstName: this.firstNameRef.value.value,
-      // lastName: this.lastNameRef.value.value,
