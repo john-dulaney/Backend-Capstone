@@ -11,9 +11,9 @@ import RegisterForm from './Profile/RegisterForm';
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      {/* <IndexRedirect to="/" /> */}
+      <IndexRedirect to="/" />
 
-      {/* <Route exact path="/" component={App} /> */}
+      <Route exact path="/" component={App} />
 
       <Route path="/login" component={LoginForm} />
 
@@ -21,11 +21,9 @@ const Router = () => (
 
       <Route path="/checklist" component={ChecklistApi} />
 
-      {/* <Route path="/dashboard/:userId" component={Dashboard} /> */}
+      <Route path="/dashboard/:userId" component={Dashboard} />
 
-      {/* <Route path="/steveway" component={SteveWay} /> */}
-
-      {/* <Route path="/home" component={App} /> */}
+      <Route path="/home" component={App} />
 
       <Route component={NotFound} />
     </Switch>

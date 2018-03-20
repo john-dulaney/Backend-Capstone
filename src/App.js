@@ -3,8 +3,7 @@ import ErrorBoundary from './Common/ErrorBoundary';
 import NavBar from './Common/Navbar';
 import './styles/App.css';
 import RegisterForm from './Profile/RegisterForm';
-
-
+// import router from 'react-router-dom';
 
 // Class Begin
 class App extends Component {
