@@ -21,7 +21,6 @@ class LoginForm extends Component {
     // login the user object
     // this.props.loginUser(user);
     // Change the page to /dashboard/whatever-they-entered
-    this.props.history.push(`/dashboard/${user}`);
     // form reset
     event.currentTarget.reset();
   };

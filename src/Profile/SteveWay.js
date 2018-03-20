@@ -1,115 +1,100 @@
-import React, {Component} from 'react';
+// import React, {Component} from 'react';
 
-class Xhr extends Component {
-  constructor(props) {
-    super(props);
+// class Xhr extends Component {
+//   constructor(props) {
+//     super(props);
 
-    // Define initial state
-    this.state = {
-      userList: [],
-      firstName: '',
-      lastName: '',
-      emailAddress: '',
-      remoteURL: `http://localhost:5000/api/AspNetUsers/`,
-      userLoadingMsg: 'Loading users...',
-      error: null,
-      isLoaded: false
+//     // Define initial state
+//     this.state = {
+//       userList: [],
+//       firstName: '',
+//       lastName: '',
+//       emailAddress: '',
+//       password: '',
+//       remoteURL: `http://localhost:5000/api/token`,
+//       userLoadingMsg: 'Loading users...',
+//       error: null,
+//       isLoaded: false,
+//     };
 
-    };
+//     // Bind event handler context to this component
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.handleFormFieldChange = this.handleFormFieldChange.bind(this);
+//   }
 
-    // Bind event handler context to this component
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFormFieldChange = this.handleFormFieldChange.bind(this);
-  }
+//   registerUser = () => {
+//     let xhr = new XMLHttpRequest();
+//     xhr.open(
+//       'POST',
+//       `${this.state.remoteURL}/${this.state.emailAddress}?${this.state
+//         .password}`
+//     );
 
-  emailRef = React.createRef();
-  passwordRef = React.createRef();
-  passwordConfirmRef = React.createRef();
+//     xhr.onload = function() {
+//       let data = JSON.parse(xhr.responseText);
+//     }
+//       .bind(this)
+//       .then(console.log(this));
 
+//     xhr.send();
+//   };
 
-  loadUsers() {
-    fetch("http://localhost:5000/api/Users")
-    .then(res => res.json())
-    .then(
-      (result) => {
-        console.log(result)
-        this.setState({
-          isLoaded: true,
-          userList: result
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
-    // xhr.send();
-  }
+//   componentDidMount() {
+//     // this.loadUsers();
+//   }
 
-  componentDidMount() {
-    this.loadUsers();
-  }
+//   handleSubmit = (event) => {
+//     event.preventDefault();
 
-  handleSubmit = function(evt) {
-    evt.preventDefault();
+//     const newUserInfo = {
+//       emailAddress: this.state.emailAddress,
+//       password: this.state.password,
+//     };
 
-    const newUserInfo = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      emailAddress: this.state.emailAddress,
-    };
+//     registerUser();
 
-    // this.setState(prevState => ({
-    //   contactList: prevState.contactList.concat(newUserInfo),
-    //   firstName: "",
-    //   lastName: "",
-    //   emailAddress: ""
-    // }))
-  };
+//   }
 
-  handleFormFieldChange(evt) {
-    const stateToChange = {};
-    stateToChange[evt.target.id] = evt.target.value;
+//   handleFormFieldChange = (event) => {
+//     event.preventDefault();
+//     const stateToChange = {};
+//     stateToChange[event.target.id] = event.target.value;
 
-    // this.setState(stateToChange)
-  }
+//     // this.setState(stateToChange)
+//   }
 
-  render() {
-    return (
-      <div className="RegisterUser">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.firstName}
-            onChange={this.handleFormFieldChange}
-            placeholder="Enter your first name"
-            id="firstName"
-          />
+//   render() {
+//     return (
+//       <div className="RegisterUser">
+//         <form onSubmit={this.handleSubmit}>
+//           <input
+//             type="text"
+//             value={this.state.emailAddress}
+//             onChange={this.handleFormFieldChange}
+//             placeholder="Enter your email address"
+//             id="emailAddress"
+//           />
+//           <input
+//             type="text"
+//             value={this.state.password}
+//             onChange={this.handleFormFieldChange}
+//             placeholder="Enter your password"
+//             id="password"
+//           />
+//           <input
+//             type="text"
+//             // value={this.state.emailAddress}
+//             // onChange={this.handleFormFieldChange}
+//             placeholder="Confirm your password"
+//             id="confirmPassword"
+//           />
 
-          <input
-            type="text"
-            value={this.state.lastName}
-            onChange={this.handleFormFieldChange}
-            placeholder="Enter your last name"
-            id="lastName"
-          />
+//           <button>Register</button>
+//         </form>
+//         {/* <UserList contactList={this.state.contactList} loadingMsg={this.state.contactLoadingMsg} /> */}
+//       </div>
+//     );
+//   }
+// }
 
-          <input
-            type="text"
-            value={this.state.emailAddress}
-            onChange={this.handleFormFieldChange}
-            placeholder="Enter your email address"
-            id="emailAddress"
-          />
-
-          <button>Register</button>
-        </form>
-        {/* <UserList contactList={this.state.contactList} loadingMsg={this.state.contactLoadingMsg} /> */}
-      </div>
-    );
-  }
-}
-
-export default Xhr;
+// export default Xhr;

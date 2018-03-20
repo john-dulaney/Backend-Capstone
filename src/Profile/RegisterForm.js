@@ -1,80 +1,103 @@
 import React, {Component} from 'react';
-// import AppState from '../Appstate';
-import '../styles/form.css';
-// import Router from '../Router';
-// import ProfileApi from './ProfileApi';
 
 class RegisterForm extends Component {
-  emailRef = React.createRef();
-  passwordRef = React.createRef();
-  passwordConfirmRef = React.createRef();
+  constructor(props) {
+    super(props);
 
-  // This function handles the login form actions on button click.
-  RegisterNewUserHandler = event => {
-    // Stop the form from submitting
-    event.preventDefault();
-    // apiCallHandler(user)
-    // get the text from that input create a user object
-    const user = {
-      email: this.emailRef.current.value,
-      password: this.passwordRef.current.value,
+    // Define initial state
+    this.state = {
+      userList: [],
+      firstName: '',
+      lastName: '',
+      emailAddress: '',
+      password: '',
+      remoteURL: `http://localhost:5000/api/token`,
+      userLoadingMsg: 'Loading users...',
+      error: null,
+      isLoaded: false,
+    };
+
+    // Bind event handler context to this component
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFormFieldChange = this.handleFormFieldChange.bind(this);
+  }
+
+  registerUser = () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open(
+      'POST',
+      `${this.state.remoteURL}/${this.state.emailAddress}?${this.state.password}`
+    );
+
+    xhr.onload = function() {
+      let data = JSON.parse(xhr.responseText);
+      // localStorage.setItem("token", token);
     }
-    console.log(user);
-    // login the user object
-    // this.props.loginUser(user);
-    // Change the page to /dashboard/whatever-they-entered
-    // this.props.history.push(`/dashboard/${user}`);
-    // form reset
-    event.currentTarget.reset();
+      .bind(this)
+      .then(console.log(this));
+
+    xhr.send();
   };
 
+  componentDidMount() {
+    // this.loadUsers();
+  }
 
-  // apiCallHandler = (user) => {
-  //   fetch('http://localhost:5000/api/AspNetUsers', {
-  //     method: 'POST',
-  //     body: JSON.stringify(data),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     credentials: 'same-origin',
-  //   }).then(r => 
-  //     console.log(r)
-  //     ,
-  //     function(error) {
-  //       error.message; //=> String
-  //     }
-  //   );
-  //   }
+  handleSubmit = (event) => {
+    event.preventDefault();
 
+    const newUserInfo = {
+      emailAddress: this.state.emailAddress,
+      password: this.state.password,
+    };
 
+    this.registerUser();
 
+  }
 
+  handleFormFieldChange = (event) => {
+    // event.preventDefault();
+    const stateToChange = {};
+    stateToChange[event.target.id] = event.target.value;
 
-  // Render block
+    // this.setState(stateToChange)
+  }
+
   render() {
     return (
-      <div>
-        <form onSubmit={this.RegisterNewUserHandler}>
+      <div className="RegisterUser">
+        <form onSubmit={this.handleSubmit}>
           <div>
-            <label>
-              Email:
-              <input type="email" autoFocus required ref={this.emailRef} />
-            </label>
+          <input
+            type="text"
+            // value={this.state.emailAddress}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your email address"
+            id="emailAddress"
+          />
           </div>
           <div>
-            <label>
-              Password:
-              <input type="password" required ref={this.passwordRef} />
-            </label>
+          <input
+            type="text"
+            // value={this.state.password}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your password"
+            id="password"
+          />
           </div>
           <div>
-            <label>
-              Confirm Password:
-              <input type="password" required ref={this.passwordConfirmRef} />
-            </label>
+          <input
+            type="text"
+            // value={this.state.emailAddress}
+            // onChange={this.handleFormFieldChange}
+            placeholder="Confirm your password"
+            id="confirmPassword"
+          />
           </div>
-          <button type="submit">Register! →</button>
+
+          <button>Register</button>
         </form>
+        {/* <UserList contactList={this.state.contactList} loadingMsg={this.state.contactLoadingMsg} /> */}
       </div>
     );
   }

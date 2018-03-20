@@ -19,7 +19,7 @@ const Router = () => (
 
       <Route path="/login" component={LoginForm} />
 
-      <Route path="/registerUser" component={RegisterForm} />
+      <Route path="/RegisterUser" component={RegisterForm} />
 
       <Route path="/steveway" component={SteveWay} />
 
