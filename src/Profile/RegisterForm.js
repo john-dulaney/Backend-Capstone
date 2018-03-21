@@ -24,9 +24,10 @@ class RegisterForm extends Component {
 
   registerUser = () => {
     let xhr = new XMLHttpRequest();
+    const r = this.state
     xhr.open(
       'POST',
-      `${this.state.remoteURL}?username=${this.state.emailAddress}&firstName=${this.state.firstName}&lastName=${this.state.lastName}&password=${this.state.password}`,
+      `${r.remoteURL}?username="${r.emailAddress}"&firstName="${r.firstName}"&lastName="${r.lastName}"&password="${r.password}"`,
       true
     );
 
@@ -56,7 +57,7 @@ class RegisterForm extends Component {
   render() {
     return (
       <div className="RegisterForm">
-        <form onSubmit={this.handleSubmit}>
+        <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div>
           <input
             type="text"
@@ -65,6 +66,8 @@ class RegisterForm extends Component {
             placeholder="Enter your email address"
             id="emailAddress"
           />
+          </div>
+          <div>
           <input
             type="text"
             value={this.state.firstName}
@@ -72,6 +75,8 @@ class RegisterForm extends Component {
             placeholder="Enter your first name"
             id="firstName"
           />
+          </div>
+          <div>
           <input
             type="text"
             value={this.state.lastName}
