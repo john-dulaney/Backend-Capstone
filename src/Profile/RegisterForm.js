@@ -24,9 +24,10 @@ class RegisterForm extends Component {
 
   registerUser = () => {
     let xhr = new XMLHttpRequest();
+    const r = this.state
     xhr.open(
       'POST',
-      `${this.state.remoteURL}?username=${this.state.emailAddress}&firstName=${this.state.firstName}&lastName=${this.state.lastName}&password=${this.state.password}`,
+      `${r.remoteURL}?username="${r.emailAddress}"&firstName="${r.firstName}"&lastName="${r.lastName}"&password="${r.password}"`,
       true
     );
 
