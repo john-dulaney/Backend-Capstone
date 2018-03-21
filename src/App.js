@@ -30,7 +30,7 @@ class App extends Component {
           <h3>Login</h3>
           <LoginForm header={state.AppHeader} update={this.props.setAppState} />
         </ErrorBoundary>
-          
+         
         </div>
 
 
