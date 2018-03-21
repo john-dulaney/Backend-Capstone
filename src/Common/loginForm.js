@@ -1,62 +1,54 @@
-import React, { Component } from "react";
-import AppState from "../Appstate";
+import React, {Component} from 'react';
+import '../styles/form.css';
+import Router from '../Router';
+import RegisterForm from '../Profile/RegisterForm';
+
 class LoginForm extends Component {
-  // construct what this module deals with
-  constructor(props) {
-    super(props);
-    this.state = {
-      emailAddress: "",
-      Password: ""
-    };
-  }
+  emailRef = React.createRef();
+  passwordRef = React.createRef();
 
-  componentDidMount() {
-    // On page load
-  }
-  
-  handleSubmit(event) {
-    alert("This form actually worked: " + this.state.value);
-    console.log("ayyy")
-    // event.preventDefault();
+  // This function handles the login form actions on button click.
+  logUserInHandler = event => {
+    // Stop the form from submitting
+    event.preventDefault();
 
-    // User API Module Gets dinged here???
-  }
-  
-  // Actual Form Code
+    // get the text from that input create a user object
+    // const user = {
+    //   email: this.emailRef.current.value,
+    //   password: this.passwordRef.current.value,
+    // };
+    // console.log(user);
+    // login the user object
+    // this.props.loginUser(user);
+    // Change the page to /dashboard/whatever-they-entered
+    // form reset
+    event.currentTarget.reset();
+  };
+  // Render block
   render() {
     return (
       <div>
-        <form 
-          onSubmit={this.handleSubmit}
-        >
+        <form onSubmit={this.logUserInHandler}>
           <div>
             <label>
               Email:
-              <input
-                autoFocus
-                type="text"
-                value={this.props.emailAddress}
-                onChange={this.props.onChange}
-              />
+              <input type="email" autoFocus required ref={this.emailRef} />
             </label>
           </div>
 
           <div>
             <label>
               Password:
-              <input
-                type="text"
-                value={this.props.Password}
-                onChange={this.props.onChange}
-              />
+              <input type="password" required ref={this.passwordRef} />
             </label>
           </div>
-          <button
-            type="submit"
-            value="Login"
-          >
-            Login
-          </button>
+          <button type="submit">Login →</button>
+          <br/>
+          or
+          <br/>
+          <Router path="/register" component={RegisterForm} >
+          <button type="submit">Register New Account →</button>
+          </Router>
         </form>
       </div>
     );

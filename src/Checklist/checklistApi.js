@@ -1,8 +1,8 @@
 // Imports
 import React, { Component } from "react";
-import ChecklistCSS from '../styles/ChecklistCSS.css';
+// import ChecklistCSS from '../styles/ChecklistCSS.css';
 
-class ChecklistApi extends React.Component {
+class ChecklistApi extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -11,6 +11,7 @@ class ChecklistApi extends React.Component {
         items: []
       };
     }
+
   
     componentDidMount() {
       fetch("http://localhost:5000/api/ChecklistItem")
