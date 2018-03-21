@@ -1,18 +1,14 @@
 // Imports
 import React, { Component } from "react";
 import palm from './palm.png';
+// import {Link, Router} from 'react-router-dom';
 import {
   Nav,
   Navbar,
   NavItem,
-  NavDropdown,
-  MenuItem,
-  ButtonToolbar,
-  Button,
-  ButtonGroup,
 } from "react-bootstrap";
 
-class NavBar extends React.Component {
+class NavBar extends Component {
   render() {
     return (
       <Navbar inverse collapseOnSelect className="nav staticTop">
@@ -24,10 +20,10 @@ class NavBar extends React.Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="CreateNewTrip.js">
+            <NavItem eventKey={1} href="CreateNewTrip">
               Plan A New Trip to Take
             </NavItem>
-            <NavItem eventKey={2} href="SavedTripsDashboard.js">
+            <NavItem eventKey={2} href="SavedTripsDashboard">
               View Saved Trip Checklists
             </NavItem>
             {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
@@ -39,11 +35,11 @@ class NavBar extends React.Component {
           </NavDropdown> */}
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="loginForm.js">
+            <NavItem eventKey={1} href="loginForm">
               Login
             </NavItem>
-            <NavItem eventKey={2} href="createAccount.js">
-              Create Account
+            <NavItem eventKey={2} href="createAccount">
+            {/* <Router> <Link to="CreateAccount">Create Account</Link></Router> */}
             </NavItem>
           </Nav>
         </Navbar.Collapse>

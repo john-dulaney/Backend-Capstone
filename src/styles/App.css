@@ -5,6 +5,9 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  float: left;
+  margin-left: -130px;
+  margin-top: -30px;
 }
 
 @keyframes App-logo-spin {
