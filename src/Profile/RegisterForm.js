@@ -1,12 +1,4 @@
 import React, {Component} from 'react';
-import {
-  Form,
-  FormGroup,
-  FormControl,
-  ControlLabel,
-  Col,
-  Button,
-} from 'react-bootstrap';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -16,7 +8,7 @@ class RegisterForm extends Component {
     this.state = {
       userList: [],
       firstName: '',
-      lastName: '',
+      lastName: '', 
       emailAddress: '',
       password: '',
       remoteURL: `http://localhost:5000/api/token`,
@@ -39,119 +31,76 @@ class RegisterForm extends Component {
     );
 
     xhr.onload = function() {
-      debugger;
-      let token = xhr.responseText;
-      console.log(token);
-      localStorage.setItem('token', token);
-    };
+      debugger
+      let token = xhr.responseText
+      console.log(token)
+      localStorage.setItem("token", token);
+    }
     xhr.send();
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.registerUser();
-  };
+  }
 
-  handleFormFieldChange = event => {
+
+  handleFormFieldChange = (event) => {
     event.preventDefault();
     const stateToChange = {};
     stateToChange[event.target.id] = event.target.value;
 
-    this.setState(stateToChange);
-  };
+    this.setState(stateToChange)
+  }
 
- 
   render() {
     return (
-  
       <div className="RegisterForm">
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label class="control-label col-sm-2" for="emailAddress">
-              Email:
-            </label>
-            <div class="col-sm-10">
-              <input
-                type="email"
-                required
-                autoFocus
-                autoComplete
-                className="form-control"
-                value={this.state.emailAddress}
-                onChange={this.handleFormFieldChange}
-                placeholder="Enter your email address"
-                id="emailAddress"
-              />
-            </div>
+          <div>
+          <input
+            type="text"
+            value={this.state.emailAddress}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your email address"
+            id="emailAddress"
+          />
           </div>
-
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="firstName">
-              First Name:
-            </label>
-            <div className="col-sm-10">
-              <input
-                type="text"
-                required
-                value={this.state.firstName}
-                onChange={this.handleFormFieldChange}
-                placeholder="Enter your first name"
-                id="firstName"
-              />
-            </div>
+          <div>
+          <input
+            type="text"
+            value={this.state.firstName}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your first name"
+            id="firstName"
+          />
           </div>
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="lastName">
-              Last Name:
-            </label>
-            <div className="col-sm-10">
-              <input
-                type="text"
-                required
-                value={this.state.lastName}
-                onChange={this.handleFormFieldChange}
-                placeholder="Enter your last name"
-                id="lastName"
-              />
-            </div>
+          <div>
+          <input
+            type="text"
+            value={this.state.lastName}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your last name"
+            id="lastName"
+          />
           </div>
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="password">
-              Select a Password:
-            </label>
-            <div className="col-sm-10">
-              <input
-                type="password"
-                required
-                value={this.state.password}
-                onChange={this.handleFormFieldChange}
-                placeholder="Enter your password"
-                id="password"
-              />
-            </div>
+          <div>
+          <input
+            type="text"
+            value={this.state.password}
+            onChange={this.handleFormFieldChange}
+            placeholder="Enter your password"
+            id="password"
+          />
           </div>
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="confirmPassword">
-              Confirm your Password:
-            </label>
-            <div className="col-sm-10">
-              <input
-                type="text"
-                // value={this.state.emailAddress}
-                onChange={this.handleFormFieldChange}
-                placeholder="Confirm your password"
-                id="confirmPassword"
-              />
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Remember me</input>
-                </label>
-              </div>
-            </div>
+          <div>
+          <input
+            type="text"
+            // value={this.state.emailAddress}
+            onChange={this.handleFormFieldChange}
+            placeholder="Confirm your password"
+            id="confirmPassword"
+          />
           </div>
 
           <button>Register</button>
