@@ -1,13 +1,14 @@
 // imports
 import React, {Component} from 'react';
 import '../styles/form.css'
+import Select from 'react-select';
 class CreatListItem extends Component {
   constructor(props) {
     super(props);
     // Define initial state
     this.state = {
       ChecklistAction: '',
-      TripType: '',
+      TripTypeId: '',
       remoteURL: `http://localhost:5000/api/`,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,10 +23,10 @@ class CreatListItem extends Component {
   //   *
   //   *************************************************************************************
 
-  addChecklistItem = ChecklistItem => {
-    console.log('Posting: ', ChecklistItem);
+  addChecklistItem = checklistItem => {
+    console.log('Posting: ', checklistItem);
     fetch(
-      `http://localhost:5000/api/ChecklistItem=${ChecklistItem.ChecklistAction}&TripType=${ChecklistItem.TripType}`,
+      `http://localhost:5000/api/ChecklistItem?ChecklistAction=${checklistItem.ChecklistAction}&TripTypeId=${checklistItem.TripTypeId}`,
       {
         method: 'POST',
         headers: {
@@ -45,11 +46,11 @@ class CreatListItem extends Component {
   handleSubmit = event => {
     event.preventDefault();
     
-    const ChecklistItem = {
+    const checklistItem = {
       ChecklistAction: this.state.ChecklistAction,
-      TripType: this.state.TripType,
+      TripTypeId: this.state.TripTypeId,
     };
-    this.addChecklistItem(ChecklistItem);
+    this.addChecklistItem(checklistItem);
   };
 
   handleChangeChecklistAction = ChecklistAction => {
@@ -60,10 +61,10 @@ class CreatListItem extends Component {
     );
   };
 
-  handleChangeType = TripType => {
+  handleChangeType = TripTypeId => {
     this.setState(
       {
-        TripType: TripType.target.value,
+        TripTypeId: TripTypeId.value,
       }
     );
   };
@@ -101,13 +102,30 @@ class CreatListItem extends Component {
           <div className="form-group">
           <label>Please Enter the type(s) of trips this item is relevant to</label>
           <br/>
-            <input
+            {/* <input
               type="text"
-              value={this.state.TripType}
+              value={this.state.TripTypeId}
               onChange={this.handleChangeType}
               placeholder="Please Enter the type(s) of trips this item is relevant to"
-              id="TripType"
+              id="TripTypeId"
+            /> */}
+             <div>
+            <Select
+              name="TripTypeId"
+              id="TripTypeId"
+              required
+              // value={this.state.TripTypeId}
+              onChange={this.handleChangeType}
+              options={[
+                {value: 1, label: 'Skii'},
+                {value: 2, label: 'Cruise'},
+                {value: 3, label: 'Beach Vacation'},
+                {value: 4, label: 'Mountain Climbing'},
+                {value: 5, label: 'Business'},
+                {value: 6, label: 'Backpacking'},
+              ]}
             />
+          </div>
           </div>
           <br/>
           <br/>
@@ -117,7 +135,7 @@ class CreatListItem extends Component {
               id="addItem_button"
               className="btn btn-success btn-md"
             >
-              Log in / Recover Pass
+              Add Item
             </button>
           </div>
         </form>
@@ -125,7 +143,7 @@ class CreatListItem extends Component {
           <div>
             <input
               type="text"
-              value={TripType}
+              value={TripTypeId}
               onChange={this.state.handleChangeChecklistAction}
               placeholder="Enter the item you wish to add to the checklist"
               id="ChecklistAction"
@@ -137,7 +155,7 @@ class CreatListItem extends Component {
               value={ChecklistAction}
               onChange={this.state.handleChangeType}
               placeholder="Please Enter the type(s) of trips this item is relevant to"
-              id="TripType"
+              id="TripTypeId"
             />
           </div>
           <button>Add it!</button>

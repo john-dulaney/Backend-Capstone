@@ -28,12 +28,11 @@ class RegisterForm extends Component {
     const r = this.state
     xhr.open(
       'POST',
-      `${r.remoteURL}?username="${r.emailAddress}"&firstName="${r.firstName}"&lastName="${r.lastName}"&password="${r.password}"`,
+      `${r.remoteURL}?username=${r.emailAddress}&firstName=${r.firstName}&lastName=${r.lastName}&password=${r.password}`,
       true
     );
 
     xhr.onload = function() {
-      debugger
       let token = xhr.responseText
       console.log(token)
       localStorage.setItem("token", token);

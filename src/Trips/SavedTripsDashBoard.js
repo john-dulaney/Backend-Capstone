@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
-class GetSavedtripsDashboard extends Component {
+class SavedTripsDashBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,4 +53,4 @@ class GetSavedtripsDashboard extends Component {
     }
   }
 }
-export default GetSavedtripsDashboard;
+export default SavedTripsDashBoard;

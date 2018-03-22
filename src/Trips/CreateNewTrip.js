@@ -2,7 +2,8 @@
 import React, {Component} from 'react';
 // import Form from 'react-bootstrap-form';
 import Select from 'react-select';
-import '../styles/form.css'
+import './TripCSS.css'
+import { LinkContainer } from 'react-router-bootstrap';
 class CreateNewTrip extends Component {
   constructor(props) {
     super(props);
@@ -178,7 +179,7 @@ class CreateNewTrip extends Component {
               ]}
             />
           </div>
-          <button>Add a trip</button>
+          <LinkContainer to="/SavedTripsDashBoard"><button className="btn btn-success btn-md">Add a trip</button></LinkContainer>
         </form>
       </div>
     );

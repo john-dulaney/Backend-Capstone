@@ -1,7 +1,7 @@
 // Imports
 import React, {Component} from 'react';
 import palm from './palm.png';
-// import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
 
 class NavBar extends Component {
@@ -19,28 +19,22 @@ class NavBar extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            {/* <LinkContainer to="/CreateNewTrip"> */}
+          {/* <LinkContainer> */}
               <NavItem eventKey={1} href="CreateNewTrip">
                 Plan A New Trip to Take
               </NavItem>
-            {/* </LinkContainer> */}
-            {/* <LinkContainer to="/CreateListItem"> */}
-              <NavItem eventKey={2} href="SavedTripsDashboard">
+          {/* </LinkContainer> */}
+              <NavItem eventKey={2} href="CreateListItem">
                 Add to your Checklist
               </NavItem>
-            {/* </LinkContainer> */}
           </Nav>
           <Nav pullRight>
-            {/* <LinkContainer to="/LoginForm"> */}
-              <NavItem eventKey={1} href="LoginForm">
+              <NavItem eventKey={1} href="Login ">
                 Login
               </NavItem>
-            {/* </LinkContainer> */}
-            {/* <LinkContainer to="/CreateAccount"> */}
-              <NavItem eventKey={2} href="createAccount">
+              <NavItem eventKey={2} href="RegisterUser">
                 Create Account
               </NavItem>
-            {/* </LinkContainer> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

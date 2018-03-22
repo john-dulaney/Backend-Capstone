@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ErrorBoundary from './Common/ErrorBoundary';
 import './styles/App.css';
 // import {Link} from 'react-router-dom';
 import './styles/form.css';
@@ -26,6 +25,7 @@ class App extends Component {
       })
         .then(result => {
           if (result.ok) {
+            
             return result.json();
           } else {
             return {
@@ -47,12 +47,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ErrorBoundary>
-          {/* <NavBar /> */}
-          <div className="">
-            {/* <Link to="/CreateListItem"><button>ayyyyyy</button> </Link> */}
-          </div>
-        </ErrorBoundary>
       </div>
     );
   }

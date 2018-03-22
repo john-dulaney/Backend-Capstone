@@ -1,14 +1,15 @@
-import React from "react";
-import { BrowserRouter, Route, Switch, } from "react-router-dom";
-import NotFound from "./Common/NotFound";
-import LoginForm from './Common/LoginForm';
+import React from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import NotFound from './Common/NotFound';
 import RegisterForm from './Profile/RegisterForm';
 import App from './App';
-import CreateListItem from "./Checklist/CreateListItem";
+import CreateListItem from './Checklist/CreateListItem';
 import CreateNewTrip from './Trips/CreateNewTrip';
-import NavBar from './Common/Navbar';
+import LoginForm from './Profile/LoginForm';
+import SavedTripsDashBoard from './SavedTripsDashBoard';
 
-const Router = () => (
+
+const Router = () =>
   <BrowserRouter>
     <Switch>
       {/* <IndexRedirect to="/" /> */}
@@ -22,6 +23,8 @@ const Router = () => (
       <Route exact path="/CreateListItem" component={CreateListItem} />
 
       <Route exact path="/CreateNewTrip" component={CreateNewTrip} />
+      
+      <Route exact path="/SavedTripsDashBoard" component={SavedTripsDashBoard} />
 
       {/* <Route path="/dashboard/:userId" component={Dashboard} /> */}
 
@@ -29,7 +32,6 @@ const Router = () => (
 
       <Route component={NotFound} />
     </Switch>
-  </BrowserRouter>
-);
+  </BrowserRouter>;
 
 export default Router;
