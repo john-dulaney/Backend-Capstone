@@ -1,8 +1,7 @@
 // imports
 import React, {Component} from 'react';
-import Select from 'react-select';
-
-// import 'react-select/dist/react-select.css';
+// import Form from 'react-bootstrap-form';
+import { Select } from 'react-select';
 
 class CreateNewTrip extends Component {
   constructor(props) {
@@ -139,7 +138,7 @@ class CreateNewTrip extends Component {
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div>
             <label>How long do you intend this trip to be?</label>
-            <Select
+            <select
               name="duration"
               id="duration"
               required
@@ -155,7 +154,7 @@ class CreateNewTrip extends Component {
           </div>
           <label>Where are you going?</label>
           <div>
-            <Select
+            <select
               name="location"
               id="location"
               required
@@ -166,7 +165,7 @@ class CreateNewTrip extends Component {
           </div>
           <label>What activities do you plan on doing?</label>
           <div>
-            <Select
+            <select
               name="duration"
               id="duration"
               required

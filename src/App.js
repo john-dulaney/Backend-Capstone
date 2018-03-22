@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import ErrorBoundary from './Common/ErrorBoundary';
 import NavBar from './Common/Navbar';
 import './styles/App.css';
-import RegisterForm from './Profile/RegisterForm';
-// import router from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import CreateNewTrip from './Trips/CreateNewTrip';
 import SavedTripsDashBoard from './Trips/SavedTripsDashBoard';
 import TripTypeApi from './Trips/TripTypeApi';
+import CreateListItem from './Checklist/CreateListItem';
 
 // Class Begin
 class App extends Component {
@@ -56,13 +56,13 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <ErrorBoundary>
-          <NavBar />
+        {/* <ErrorBoundary> */}
           <div className="">
-            <h3>Create New Trip</h3>
-            <CreateNewTrip />
+            {/* <CreateListItem /> */}
+
+            <Link to="/CreateListItem"><button>ayyyyyy</button> </Link>
           </div>
-        </ErrorBoundary>
+        {/* </ErrorBoundary> */}
       </div>
     );
   }
