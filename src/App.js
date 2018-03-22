@@ -5,6 +5,7 @@ import './styles/App.css';
 import RegisterForm from './Profile/RegisterForm';
 // import router from 'react-router-dom';
 import CreateNewTrip from './Trips/CreateNewTrip';
+import SavedTripsDashBoard from './Trips/SavedTripsDashBoard';
 
 // Class Begin
 class App extends Component {
@@ -58,7 +59,7 @@ componentDidMount() {
           <NavBar />
           <div className="">
             <h3>Create New Trip</h3>
-            <CreateNewTrip />
+            <SavedTripsDashBoard />
           </div>
         </ErrorBoundary>
       </div>

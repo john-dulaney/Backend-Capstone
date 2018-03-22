@@ -1,6 +1,7 @@
 // imports
 import React, {Component} from 'react';
 import Select from 'react-select';
+
 // import 'react-select/dist/react-select.css';
 
 class CreateNewTrip extends Component {
@@ -44,14 +45,14 @@ class CreateNewTrip extends Component {
   //   *************************************************************************************
 
   addTrip = trip => {
-      console.log(trip)
+    console.log(trip);
     fetch(`http://localhost:5000/api/Trip`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify(trip),
-    })
+    });
     //   .then(res => res.json())
     //   .then(r => {
     //     console.log(r);
@@ -72,8 +73,8 @@ class CreateNewTrip extends Component {
       location: this.state.location,
       tripType: this.state.tripType,
     };
-console.log(trip)
-    
+    console.log(trip);
+
     this.addTrip(trip);
   };
 
@@ -124,7 +125,6 @@ console.log(trip)
   //   *
   //   * variables set for some reason, I think just for ease of passing and shorthand for some of them
   //   *************************************************************************************
-
   render() {
     const {duration} = this.state;
     const {location} = this.state;
@@ -138,7 +138,6 @@ console.log(trip)
       //   *         *Add a trip form. this form collects user input for use in the API call
       //   *
       //   *************************************************************************************
-
       <div className="AddTripForm">
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div>
