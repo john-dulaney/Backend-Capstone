@@ -46,7 +46,7 @@ class CreateNewTrip extends Component {
 
   addTrip = trip => {
     console.log('Posting: ', trip);
-    fetch(`http://localhost:5000/api/Trip?duration=${trip.duration}&location=${trip.location}&tripTypeId=${trip.tripType}`, {
+    fetch(`http://localhost:5000/api/Trip?duration=${trip.duration}&location=${trip.location}&tripType=${trip.tripType}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -173,12 +173,12 @@ class CreateNewTrip extends Component {
               //   value={value}
               onChange={this.handleChangeType}
               options={[
-                {value: 1, label: 'Skii'},
-                {value: 2, label: 'Cruise'},
-                {value: 3, label: 'Beach Vacation'},
-                {value: 4, label: 'Mountain Climbing'},
-                {value: 5, label: 'Business'},
-                {value: 6, label: 'Backpacking'},
+                {value: "Skii", label: 'Skii'},
+                {value: "Cruise", label: 'Cruise'},
+                {value: "Beach Vacation", label: 'Beach Vacation'},
+                {value: "Mountain Climbing", label: 'Mountain Climbing'},
+                {value: "Business", label: 'Business'},
+                {value: "Backpacking", label: 'Backpacking'},
               ]}
             />
           </div>
