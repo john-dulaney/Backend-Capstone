@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 0.00001s linear;
+  animation: App-logo-spin infinite 3s linear;
   height: 80px;
   float: left;
   margin-left: -130px;
@@ -17,4 +17,11 @@
 
 .navbar {
   padding: 20px;
+}
+
+.form-horizontal {
+  width: 30%;
+  text-align: center;
+  align-content: center;
+  display: inline-block;
 }

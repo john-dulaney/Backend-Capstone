@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Form from 'react-bootstrap-form';
+
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -57,7 +59,7 @@ class RegisterForm extends Component {
   render() {
     return (
       <div className="RegisterForm">
-        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+        <Form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div>
           <input
             type="text"
@@ -105,7 +107,7 @@ class RegisterForm extends Component {
           </div>
 
           <button>Register</button>
-        </form>
+        </Form>
       </div>
     );
   }

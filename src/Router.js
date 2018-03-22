@@ -6,12 +6,14 @@ import ChecklistApi from './Checklist/ChecklistApi';
 import RegisterForm from './Profile/RegisterForm';
 // import Dashboard from './Home/Dashboard';
 // import SteveWay from "./Profile/SteveWay";
+import App from './App';
+import CreateListItem from "./Checklist/CreateListItem";
 
 
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <IndexRedirect to="/" />
+      {/* <IndexRedirect to="/" /> */}
 
       <Route exact path="/" component={App} />
 
@@ -19,11 +21,11 @@ const Router = () => (
 
       <Route path="/RegisterUser" component={RegisterForm} />
 
-      <Route path="/checklist" component={ChecklistApi} />
+      <Route path="/CreateListItem" component={CreateListItem} />
 
-      <Route path="/dashboard/:userId" component={Dashboard} />
+      {/* <Route path="/dashboard/:userId" component={Dashboard} /> */}
 
-      <Route path="/home" component={App} />
+      {/* <Route path="/home" component={App} /> */}
 
       <Route component={NotFound} />
     </Switch>
