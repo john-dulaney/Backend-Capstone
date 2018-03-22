@@ -1,8 +1,8 @@
 // imports
 import React, {Component} from 'react';
 // import Form from 'react-bootstrap-form';
-import { Select } from 'react-select';
-
+import Select from 'react-select';
+import '../styles/form.css'
 class CreateNewTrip extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +59,7 @@ class CreateNewTrip extends Component {
 
   //   *************************************************************************************
   //   *
-  //   *         *This Block of functions are form handlers for the select form
+  //   *         *This Block of functions are form handlers for the Select form
   //   *         * Works in tandom with the JSX to set the selected values into state.
   //   *
   //   *************************************************************************************
@@ -125,9 +125,6 @@ class CreateNewTrip extends Component {
     const {duration} = this.state;
     const {location} = this.state;
     const {tripType} = this.state;
-    const dur = duration && duration.value;
-    const loc = location && location.value;
-    const tType = tripType && tripType.value;
     return (
       //   *************************************************************************************
       //   *
@@ -138,7 +135,7 @@ class CreateNewTrip extends Component {
         <form className="form-horizontal" onSubmit={this.handleSubmit}>
           <div>
             <label>How long do you intend this trip to be?</label>
-            <select
+            <Select
               name="duration"
               id="duration"
               required
@@ -154,7 +151,7 @@ class CreateNewTrip extends Component {
           </div>
           <label>Where are you going?</label>
           <div>
-            <select
+            <Select
               name="location"
               id="location"
               required
@@ -165,7 +162,7 @@ class CreateNewTrip extends Component {
           </div>
           <label>What activities do you plan on doing?</label>
           <div>
-            <select
+            <Select
               name="duration"
               id="duration"
               required

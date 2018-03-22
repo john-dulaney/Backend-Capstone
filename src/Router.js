@@ -1,14 +1,12 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, } from "react-router-dom";
 import NotFound from "./Common/NotFound";
 import LoginForm from './Common/LoginForm';
-import ChecklistApi from './Checklist/ChecklistApi';
 import RegisterForm from './Profile/RegisterForm';
-// import Dashboard from './Home/Dashboard';
-// import SteveWay from "./Profile/SteveWay";
 import App from './App';
 import CreateListItem from "./Checklist/CreateListItem";
-
+import CreateNewTrip from './Trips/CreateNewTrip';
+import NavBar from './Common/Navbar';
 
 const Router = () => (
   <BrowserRouter>
@@ -17,11 +15,13 @@ const Router = () => (
 
       <Route exact path="/" component={App} />
 
-      <Route path="/login" component={LoginForm} />
+      <Route exact path="/Login" component={LoginForm} />
 
-      <Route path="/RegisterUser" component={RegisterForm} />
+      <Route exact path="/RegisterUser" component={RegisterForm} />
 
-      <Route path="/CreateListItem" component={CreateListItem} />
+      <Route exact path="/CreateListItem" component={CreateListItem} />
+
+      <Route exact path="/CreateNewTrip" component={CreateNewTrip} />
 
       {/* <Route path="/dashboard/:userId" component={Dashboard} /> */}
 

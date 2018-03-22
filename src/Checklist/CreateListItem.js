@@ -1,6 +1,6 @@
 // imports
 import React, {Component} from 'react';
-
+import '../styles/form.css'
 class CreatListItem extends Component {
   constructor(props) {
     super(props);
@@ -81,7 +81,6 @@ class CreatListItem extends Component {
       <form
           id="form-horizontal"
           className="form-inline"
-          role="form"
           action="#"
           onSubmit={this.handleSubmit}
         >
