@@ -18,3 +18,10 @@
 .navbar {
   padding: 20px;
 }
+
+.form-horizontal {
+  width: 30%;
+  text-align: center;
+  align-content: center;
+  display: inline-block;
+}

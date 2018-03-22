@@ -50,7 +50,6 @@ componentDidMount() {
         userLoggedIn: null
       }) 
     }
-
   }        
   render() {
     return (
