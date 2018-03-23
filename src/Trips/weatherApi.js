@@ -6,6 +6,7 @@ cconstructor(props) {
     this.state = {
       remoteURL: `http://localhost:5000/api/`,
       countries: [],
+      SelectedLocation: 'United Kingdom',
     }
 }
 
@@ -20,12 +21,14 @@ fetchJSON = () => {
 }
 
 fetchWeather = () => {
-    fetch(`http://api.wunderground.com/api/a396c04e6ce8d9c6/geolookup/conditions/q/IA/${this.state.SelectionLocation}.json`).then(res => res.json()).then(r =>{
+    fetch(`http://api.wunderground.com/api/a396c04e6ce8d9c6/geolookup/conditions/q/IA/${this.state.SelectedLocation}.json`).then(res => res.json()).then(r =>{
         console.log(r)
     }
 )
 
 }
+
+export default WeatherApi
 
 
 
