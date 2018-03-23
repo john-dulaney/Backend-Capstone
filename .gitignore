@@ -11,7 +11,6 @@ obj
 .eslintrc.json
 Gruntfile.js
 package-lock.json
-package.json
 .sass-cache
 
 # See https://help.github.com/ignore-files/ for more about ignoring files.
