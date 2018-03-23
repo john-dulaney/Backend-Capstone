@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './styles/App.css';
 // import {Link} from 'react-router-dom';
 import './styles/form.css';
-import NavBar from './Common/Navbar';
+// import NavBar from './Common/Navbar';
 // Class Begin
 class App extends Component {
   componentDidMount() {

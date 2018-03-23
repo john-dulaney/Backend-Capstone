@@ -1,7 +1,7 @@
 // Imports
 import React, {Component} from 'react';
 import palm from './palm.png';
-import { LinkContainer } from 'react-router-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
 
 class NavBar extends Component {

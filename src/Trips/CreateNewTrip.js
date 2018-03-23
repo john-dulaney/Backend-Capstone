@@ -179,7 +179,7 @@ class CreateNewTrip extends Component {
               ]}
             />
           </div>
-          <LinkContainer to="/SavedTripsDashBoard"><button className="btn btn-success btn-md">Add a trip</button></LinkContainer>
+          <LinkContainer to="/SavedTrips"><button className="btn btn-success btn-md">Add a trip</button></LinkContainer>
         </form>
       </div>
     );

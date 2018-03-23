@@ -1,8 +1,9 @@
 // Imports
 import React, { Component } from "react";
 // import ChecklistCSS from '../styles/ChecklistCSS.css';
+// import { ReactDOM } from 'react-dom';
 
-class ChecklistApi extends Component {
+class DisplayCheckList extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -18,11 +19,10 @@ class ChecklistApi extends Component {
         .then(res => res.json())
         .then(
           (result) => {
-            console.log(result)
             this.setState({
               isLoaded: true,
               items: result
-            });
+            })
           },
           (error) => {
             this.setState({
@@ -42,7 +42,15 @@ class ChecklistApi extends Component {
       } else {
         return (
           <ul>
-            Random list of things because i can crud:
+          {/*  // 1. We need to sort the checklistems by their corresponding checklist id . 
+
+            // 2. We need to then hardcode the tryptypeId's to the corresponding activity.
+
+            // 3. we need to then display the activity in the 
+
+            // 4. Work on the tables, getting the relational data together. thats the mission. */}
+
+
             {items.map(item => (
               <li key={item.checklistItemId}>
                 {item.checklistAction} {item.tripTypeId} {item.tripType}
@@ -53,4 +61,4 @@ class ChecklistApi extends Component {
       }
     }
   }
-export default ChecklistApi
+export default DisplayCheckList
