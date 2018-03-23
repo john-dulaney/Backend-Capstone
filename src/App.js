@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import './styles/App.css';
-import './styles/App.scss';
-// import {Link} from 'react-router-dom';
 import './styles/form.css';
-import {Col, Grid, Row} from 'react-bootstrap';
-// import NavBar from './Common/Navbar';
-// Class Begin
+import {Col, Grid, Row, Clearfix} from 'react-bootstrap';
+
 class App extends Component {
   componentDidMount() {
     this.getSavedToken();
@@ -49,28 +46,87 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="masthead">
-          <div className="container">
-            <div className="intro-text">
-              <div className="intro-heading text-uppercase">John Dulaney</div>
-              <div className="intro-lead-in">Software Developer</div>
-            </div>
-          </div>
-        </header>
-        <Grid>
+        <Grid id="topGrid">
           <Row className="show-grid">
             <Col xs={6} md={4}>
-              <code>
-                <p>hello</p>
-              </code>
+              <h1>Welcome to Triplann!</h1>
+              <p>
+                Welcome to Triplann! This Application is designed to meet your
+                travel needs by helping you organize items pertinent to you
+                destination. Click create an Account from the navbar if it is
+                your first time on this website, or Login if you are a returning
+                user. Thanks for stopping by!
+              </p>
             </Col>
-            <Col xs={12} md={8}>
-              <code>
-                <p>I'm the other side</p>
-              </code>
+            <Col id="splashPara" xs={12} md={8}>
+              <img
+                id="landingIMG"
+                className="landingImg"
+                src={require('./Common/download.jpeg')}
+                alt="beach"
+              />
             </Col>
           </Row>
         </Grid>
+
+        <div id="belt">
+          <Grid>
+            <Row className="show-grid">
+              <Col sm={6} md={3}>
+              <img
+              id=""
+              className="iconGroup"
+              src={require('./Common/001-location.png')}
+              alt="beach"
+            />
+                <br />
+              </Col>
+              <Col sm={6} md={3}>
+              <img
+              id=""
+              className="iconGroup"
+              src={require('./Common/002-luggage.png')}
+              alt="beach"
+            />
+                <br />
+              </Col>
+              <Clearfix visibleSmBlock>
+              <img
+              id=""
+              className="iconGroup"
+              src={require('./Common/003-globe.png')}
+              alt="beach"
+            />
+              </Clearfix>
+              <Col sm={6} md={3}>
+              <img
+              id=""
+              className="iconGroup"
+              src={require('./Common/005-backpack.png')}
+              alt="beach"
+            />
+                <br />
+              </Col>
+              <Col sm={6} md={3}>
+              <img
+              id=""
+              className="iconGroup"
+              src={require('./Common/004-sunbed.png')}
+              alt="beach"
+            />
+                <br />
+              </Col>
+            </Row>
+            <br />
+            <br />
+            <br />
+            <Row>
+            <Col id="copyright" sm={6} md={3}>
+            Copyright &#169; John Dulaney
+            </Col>
+            </Row>
+          </Grid>
+        </div>
       </div>
     );
   }

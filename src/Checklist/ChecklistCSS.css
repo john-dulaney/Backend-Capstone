@@ -10,3 +10,7 @@ li {
   align-content: center;
   display: inline-block;
 }
+
+#tripImg2 {
+  width: 200px;
+}

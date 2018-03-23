@@ -129,11 +129,8 @@ class CreatListItem extends Component {
           <br />
           <br />
           <div className="form-group">
-              <button id="addItem_button" className="btn btn-success btn-md">
-                Add Item
-              </button>
-            {/* <LinkContainer to="/DisplayCheckList">
-            </LinkContainer> */}
+              <button id="addItem_button" className="btn btn-success btn-md">Add Item</button>
+              <LinkContainer to="/DisplayCheckList"><button id="addItem_button" className="btn btn-success btn-md">View Items</button></LinkContainer>
           </div>
         </form>
       </div>

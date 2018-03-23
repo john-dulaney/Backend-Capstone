@@ -27,6 +27,12 @@ class NavBar extends Component {
               <NavItem eventKey={2} href="CreateListItem">
                 Add to your Checklist
               </NavItem>
+              <NavItem eventKey={3} href="SavedTrips">
+                View Saved Trips
+              </NavItem>
+              <NavItem eventKey={4} href="DisplayCheckList">
+                View your Checklist
+              </NavItem>
           </Nav>
           <Nav pullRight>
               <NavItem eventKey={1} href="Login ">

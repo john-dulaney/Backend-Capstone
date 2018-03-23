@@ -41,3 +41,22 @@ html, body {
   margin: 10px
 }
 
+#landingIMG {
+  width: 700px;
+  /* margin-left: -100px */
+}
+
+#topGrid {
+  margin-bottom: 55px;
+}
+
+#belt {
+  background-color: #222222;
+  padding: 55px;
+  padding-bottom: 95px;
+}
+
+#copyright {
+  margin-left: -185px;
+  color: #9c9c9c
+}
