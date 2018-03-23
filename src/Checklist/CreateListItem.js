@@ -1,13 +1,17 @@
 // imports
 import React, {Component} from 'react';
-
+import './ChecklistCSS.css';
+import Select from 'react-select';
+import {LinkContainer} from 'react-router-bootstrap';
+import { FormControl, FormGroup } from 'react-bootstrap';
+import { log } from 'util';
 class CreatListItem extends Component {
   constructor(props) {
     super(props);
     // Define initial state
     this.state = {
       ChecklistAction: '',
-      TripType: '',
+      TripTypeId: '',
       remoteURL: `http://localhost:5000/api/`,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,10 +26,10 @@ class CreatListItem extends Component {
   //   *
   //   *************************************************************************************
 
-  addChecklistItem = ChecklistItem => {
-    console.log('Posting: ', ChecklistItem);
+  addChecklistItem = checklistItem => {
+    console.log('Posting: ', checklistItem);
     fetch(
-      `http://localhost:5000/api/ChecklistItem=${ChecklistItem.ChecklistAction}&TripType=${ChecklistItem.TripType}`,
+      `http://localhost:5000/api/ChecklistItem?ChecklistAction=${checklistItem.ChecklistAction}&TripTypeId=${checklistItem.TripTypeId}`,
       {
         method: 'POST',
         headers: {
@@ -44,28 +48,26 @@ class CreatListItem extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    
-    const ChecklistItem = {
+
+    const checklistItem = {
       ChecklistAction: this.state.ChecklistAction,
-      TripType: this.state.TripType,
+      TripTypeId: this.state.TripTypeId,
     };
-    this.addChecklistItem(ChecklistItem);
+    console.log(checklistItem);
+    
+    this.addChecklistItem(checklistItem);
   };
 
   handleChangeChecklistAction = ChecklistAction => {
-    this.setState(
-      {
-        ChecklistAction: ChecklistAction.target.value,
-      },
-    );
+    this.setState({
+      ChecklistAction: ChecklistAction.target.value,
+    });
   };
 
-  handleChangeType = TripType => {
-    this.setState(
-      {
-        TripType: TripType.target.value,
-      }
-    );
+  handleChangeType = TripTypeId => {
+    this.setState({
+      TripTypeId: TripTypeId.value,
+    });
   };
 
   //   *************************************************************************************
@@ -78,71 +80,59 @@ class CreatListItem extends Component {
       //   *         *Add a ChecklistItem form. this form collects user input for use in the API call
       //   *************************************************************************************
       <div className="ChecklistForm">
-      <form
+        <form
           id="form-horizontal"
           className="form-inline"
-          role="form"
-          action="#"
           onSubmit={this.handleSubmit}
         >
           <div className="form-group">
-          <label>Enter the item you wish to add to the checklist</label>
-          <br/>
-            <input
-              type="text"
-              value={this.state.ChecklistAction}
-              onChange={this.handleChangeChecklistAction}
-              placeholder="Enter the item you wish to add to the checklist"
-              id="ChecklistAction"
-            />
+            <label>Enter the item you wish to add to the checklist</label>
+            <br />
+            <FormGroup bsSize="large">
+              <FormControl
+                type="text"
+                value={this.state.ChecklistAction}
+                onChange={this.handleChangeChecklistAction}
+                id="ChecklistAction"
+                placeholder="Item to save"
+              />
+            </FormGroup>
+            {/* <input type="text" /> */}
           </div>
           <br />
           <br />
           <br />
           <div className="form-group">
-          <label>Please Enter the type(s) of trips this item is relevant to</label>
-          <br/>
-            <input
-              type="text"
-              value={this.state.TripType}
-              onChange={this.handleChangeType}
-              placeholder="Please Enter the type(s) of trips this item is relevant to"
-              id="TripType"
-            />
+            <label>
+              Please Enter the type(s) of trips this item is relevant to
+            </label>
+            <br />
+            <div>
+              <Select
+                name="TripTypeId"
+                id="TripTypeId"
+                required
+                // value={this.state.TripTypeId}
+                onChange={this.handleChangeType}
+                options={[
+                  {value: 1, label: 'Skii'},
+                  {value: 2, label: 'Cruise'},
+                  {value: 3, label: 'Beach Vacation'},
+                  {value: 4, label: 'Mountain Climbing'},
+                  {value: 5, label: 'Business'},
+                  {value: 6, label: 'Backpacking'},
+                ]}
+              />
+            </div>
           </div>
-          <br/>
-          <br/>
-          <br/>
+          <br />
+          <br />
+          <br />
           <div className="form-group">
-            <button
-              id="addItem_button"
-              className="btn btn-success btn-md"
-            >
-              Log in / Recover Pass
-            </button>
+              <button id="addItem_button" className="btn btn-success btn-md">Add Item</button>
+              <LinkContainer to="/DisplayCheckList"><button id="addItem_button" className="btn btn-success btn-md">View Items</button></LinkContainer>
           </div>
         </form>
-        {/* <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={TripType}
-              onChange={this.state.handleChangeChecklistAction}
-              placeholder="Enter the item you wish to add to the checklist"
-              id="ChecklistAction"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              value={ChecklistAction}
-              onChange={this.state.handleChangeType}
-              placeholder="Please Enter the type(s) of trips this item is relevant to"
-              id="TripType"
-            />
-          </div>
-          <button>Add it!</button>
-        </form> */}
       </div>
     );
   }
@@ -150,3 +140,11 @@ class CreatListItem extends Component {
 
 // exports
 export default CreatListItem;
+
+
+// Skii
+// Cruise
+// Beach Vacation
+// Mountain Climbing
+// Business
+// Backpacking
