@@ -48,7 +48,7 @@ class SavedTrips extends Component {
         <div>
           <Grid id="topGrid">
             <Row className="show-grid">
-              <Col xs={6} md={4}>
+              <Col xs={12} md={6}>
                 <Panel id="tripPanel" bsStyle="info">
                   <Panel.Heading>
                     <Panel.Title componentClass="h3">
@@ -61,7 +61,7 @@ class SavedTrips extends Component {
                         <li key={trip.tripId}>
                           <p>
                             {trip.location} for {trip.duration}s where you
-                            intend to  (ALLAN PLEASE ADD ACTIVITY)
+                            intend to {trip.tripTypeId}
                           </p>
                           <hr />
                         </li> 
@@ -70,9 +70,9 @@ class SavedTrips extends Component {
                   </Panel.Body>
                 </Panel>
               </Col>
-              <Col id="tripImg" xs={12} md={8}>
-                <img src={require('../Common/flightpath.png')} />
-              </Col>
+              {/* <Col id="tripImg" xs={8} md={4}>
+                <img width="800px" src={require('../Common/flightpath.png')} />
+              </Col> */}
             </Row>
           </Grid>
         </div>

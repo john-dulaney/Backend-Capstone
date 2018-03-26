@@ -16,5 +16,8 @@
 }
 
 #tripImg {
-  width: 880px;
+  margin-left: -1000px;
+  padding-left: -1000px;
+  width: 80px;
+  float: right;
 }
