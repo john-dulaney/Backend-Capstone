@@ -15,7 +15,7 @@ class DisplayCheckList extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/api/ChecklistItem')
+      fetch('http://localhost:5000/api/ChecklistItem')
       .then(res => res.json())
       .then(
         result => {

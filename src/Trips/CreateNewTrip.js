@@ -48,6 +48,7 @@ class CreateNewTrip extends Component {
     console.log('Posting: ', trip);
     fetch(`http://localhost:5000/api/Trip?duration=${trip.duration}&location=${trip.location}&tripTypeId=${trip.tripType}`, {
       method: 'POST',
+      // mode: 'cors',
       headers: {
         'content-type': 'application/json',
       }
