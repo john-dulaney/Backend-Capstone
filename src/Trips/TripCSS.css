@@ -1,0 +1,23 @@
+.AddTripForm {
+    width: 1500px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    text-align: center;
+    align-content: center;
+    display: inline-block;
+  }
+
+#tripPanel {
+  width:100%;
+  text-align: center;
+  align-content: center;
+  display: inline-block;
+}
+
+#tripImg {
+  margin-left: -1000px;
+  padding-left: -1000px;
+  width: 80px;
+  float: right;
+}

@@ -25,7 +25,7 @@ class ChecklistApi extends Component {
             });
           },
           (error) => {
-            this.setState({
+            this.setState({ 
               isLoaded: true,
               error
             });
