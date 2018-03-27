@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import './ProfileFormStyle.css';
+import {FormControl, FormGroup} from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import CreateNewTrip from '../Trips/CreateNewTrip';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -8,7 +12,7 @@ class RegisterForm extends Component {
     this.state = {
       userList: [],
       firstName: '',
-      lastName: '', 
+      lastName: '',
       emailAddress: '',
       password: '',
       remoteURL: `http://localhost:5000/api/token`,
@@ -24,82 +28,89 @@ class RegisterForm extends Component {
 
   registerUser = () => {
     let xhr = new XMLHttpRequest();
+    const r = this.state;
     xhr.open(
       'POST',
-      `${this.state.remoteURL}?username=${this.state.emailAddress}&firstName=${this.state.firstName}&lastName=${this.state.lastName}&password=${this.state.password}`,
+      `${r.remoteURL}?username=${r.emailAddress}&firstName=${r.firstName}&lastName=${r.lastName}&password=${r.password}`,
       true
     );
 
     xhr.onload = function() {
-      debugger
-      let token = xhr.responseText
-      console.log(token)
-      localStorage.setItem("token", token);
-    }
+      let token = xhr.responseText;
+      console.log(token);
+      localStorage.setItem('token', token);
+    };
     xhr.send();
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     this.registerUser();
-  }
+  };
 
-
-  handleFormFieldChange = (event) => {
+  handleFormFieldChange = event => {
     event.preventDefault();
     const stateToChange = {};
     stateToChange[event.target.id] = event.target.value;
 
-    this.setState(stateToChange)
-  }
+    this.setState(stateToChange);
+  };
 
   render() {
     return (
       <div className="RegisterForm">
-        <form onSubmit={this.handleSubmit}>
-          <div>
-          <input
-            type="text"
-            value={this.state.emailAddress}
-            onChange={this.handleFormFieldChange}
-            placeholder="Enter your email address"
-            id="emailAddress"
-          />
-          <input
-            type="text"
-            value={this.state.firstName}
-            onChange={this.handleFormFieldChange}
-            placeholder="Enter your first name"
-            id="firstName"
-          />
-          <input
-            type="text"
-            value={this.state.lastName}
-            onChange={this.handleFormFieldChange}
-            placeholder="Enter your last name"
-            id="lastName"
-          />
-          </div>
-          <div>
-          <input
-            type="text"
-            value={this.state.password}
-            onChange={this.handleFormFieldChange}
-            placeholder="Enter your password"
-            id="password"
-          />
-          </div>
-          <div>
-          <input
-            type="text"
-            // value={this.state.emailAddress}
-            onChange={this.handleFormFieldChange}
-            placeholder="Confirm your password"
-            id="confirmPassword"
-          />
-          </div>
+        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+        <label>Please enter your Email Address:</label>
+          <FormGroup bsSize="large">
+            <FormControl
+              type="email"
+              required
+              autoFocus
+              value={this.state.emailAddress}
+              onChange={this.handleFormFieldChange}
+              placeholder="Enter your email address"
+              id="emailAddress"
+            />
+        <label>Your First Name:</label>
+            <FormControl
+              type="text"
+              required
+              value={this.state.firstName}
+              onChange={this.handleFormFieldChange}
+              placeholder="Enter your first name"
+              id="firstName"
+            />
+        <label>Your Last Name:</label>
+            <FormControl
+              type="text"
+              required
+              value={this.state.lastName}
+              onChange={this.handleFormFieldChange}
+              placeholder="Enter your last name"
+              id="lastName"
+            />
+        <label>Password:</label>
+            <FormControl
+              type="password"
+              required
+              value={this.state.password}
+              onChange={this.handleFormFieldChange}
+              placeholder="Enter your password"
+              id="password"
+            />
+        <label>Confirm Password:</label>
+            <FormControl
+              type="text"
+              required
+              // value={this.state.emailAddress}
+              onChange={this.handleFormFieldChange}
+              placeholder="Confirm your password"
+              id="confirmPassword"
+            />
+          </FormGroup>
 
-          <button>Register</button>
+          <LinkContainer to="/CreateNewTrip"><button type="submit" pclassName="btn btn-success btn-md">Register</button></LinkContainer>
+          
         </form>
       </div>
     );

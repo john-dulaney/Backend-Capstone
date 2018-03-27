@@ -1,35 +1,32 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import NotFound from "./Common/NotFound";
-import LoginForm from './Common/LoginForm';
-import ChecklistApi from './Checklist/ChecklistApi';
+import React from 'react';
+import App from './App';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import NotFound from './Common/NotFound';
 import RegisterForm from './Profile/RegisterForm';
-// import Dashboard from './Home/Dashboard';
-// import SteveWay from "./Profile/SteveWay";
+import CreateListItem from './Checklist/CreateListItem';
+import CreateNewTrip from './Trips/CreateNewTrip';
+import LoginForm from './Profile/LoginForm';
+import SavedTrips from './Trips/SavedTrips';
+import DisplayCheckList from './Checklist/DisplayCheckList';
 
-
-const Router = () => (
+const Router = () =>
   <BrowserRouter>
     <Switch>
-      {/* <IndexRedirect to="/" /> */}
+      <Route exact path="/" component={App} />
 
-      {/* <Route exact path="/" component={App} /> */}
+      <Route exact path="/Login" component={LoginForm} />
 
-      <Route path="/login" component={LoginForm} />
+      <Route exact path="/RegisterUser" component={RegisterForm} />
 
-      <Route path="/RegisterUser" component={RegisterForm} />
+      <Route exact path="/CreateListItem" component={CreateListItem} />
 
-      <Route path="/checklist" component={ChecklistApi} />
-
-      {/* <Route path="/dashboard/:userId" component={Dashboard} /> */}
-
-      {/* <Route path="/steveway" component={SteveWay} /> */}
-
-      {/* <Route path="/home" component={App} /> */}
+      <Route exact path="/CreateNewTrip" component={CreateNewTrip} />
+      
+      <Route exact path="/SavedTrips" component={SavedTrips} />
+      <Route exact path="/DisplayCheckList" component={DisplayCheckList} />
 
       <Route component={NotFound} />
     </Switch>
-  </BrowserRouter>
-);
+  </BrowserRouter>;
 
 export default Router;

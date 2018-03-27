@@ -1,0 +1,10 @@
+.RegisterForm {
+    width: 1500px;
+    /* margin-left: 25px; */
+    margin-right: 25px;
+    margin-top: 25px;
+    text-align: center;
+    align-content: center;
+    display: inline-block;
+  }
+

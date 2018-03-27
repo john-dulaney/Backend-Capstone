@@ -1,16 +1,8 @@
 // Imports
 import React, {Component} from 'react';
 import palm from './palm.png';
+// import { LinkContainer } from 'react-router-bootstrap';
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
-import Router from '../Router';
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
-import {LinkContainer} from 'react-router-bootstrap';
-import LoginForm from './LoginForm';
-import Dashboard from '../Home/Dashboard';
-import ChecklistApi from '../Checklist/ChecklistApi';
-import RegisterForm from '../Profile/RegisterForm';
-import TripApi from '../Trips/TripApi';
-import App from '../App';
 
 class NavBar extends Component {
   render() {
@@ -18,44 +10,37 @@ class NavBar extends Component {
       <Navbar inverse collapseOnSelect className="nav staticTop">
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">
+            <a href="/">
               <img src={palm} className="App-logo pullLeft" alt="logo" />
             </a>
+            <button className="wildcard"></button>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <BrowserRouter>
-              <Switch>
-                <LinkContainer to="/CreatNewTrip">
-                  <NavItem eventKey={1}>Plan A New Trip to Take</NavItem>
-                </LinkContainer>
-                <LinkContainer to="/SavedChecklists">
-                  <NavItem eventKey={2}>View Saved Trip Checklists</NavItem>
-                </LinkContainer>
-
-                <Route exact path="/" component={App} />
-                <Route path="/CreateNewTrip" component={TripApi} />
-                <Route path="/SavedChecklists" component={ChecklistApi} />
-              </Switch>
-            </BrowserRouter>
+          {/* <LinkContainer> */}
+              <NavItem eventKey={1} href="CreateNewTrip">
+                Plan A New Trip to Take
+              </NavItem>
+          {/* </LinkContainer> */}
+              <NavItem eventKey={2} href="CreateListItem">
+                Add to your Checklist
+              </NavItem>
+              <NavItem eventKey={3} href="SavedTrips">
+                View Saved Trips
+              </NavItem>
+              <NavItem eventKey={4} href="DisplayCheckList">
+                View your Checklist
+              </NavItem>
           </Nav>
           <Nav pullRight>
-            <BrowserRouter>
-              <Switch>
-                <LinkContainer to="/RegisterUser">
-                  <NavItem eventKey={1}>Register</NavItem>
-                </LinkContainer>
-                <LinkContainer to="/Login">
-                  <NavItem eventKey={2}>
-                    Log in/out placholder dont forget this
-                  </NavItem>
-                </LinkContainer>
-                <Route path="/RegisterUser" component={RegisterForm} />
-                <Route path="/Login" component={LoginForm} />
-              </Switch>
-            </BrowserRouter>
+              <NavItem eventKey={1} href="Login ">
+                Login
+              </NavItem>
+              <NavItem eventKey={2} href="RegisterUser">
+                Create Account
+              </NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
