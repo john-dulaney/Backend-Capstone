@@ -37,7 +37,7 @@ class LoginForm extends Component {
     };
     this.setState(jwt, () => this.isUserLoggedIn());
   }
-
+  
   isUserLoggedIn() {
     if (localStorage.getItem('token') !== null) {
       fetch(this.state.remoteUrl, {

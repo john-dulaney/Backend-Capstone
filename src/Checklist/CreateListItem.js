@@ -3,28 +3,20 @@ import React, {Component} from 'react';
 import './ChecklistCSS.css';
 import Select from 'react-select';
 import {LinkContainer} from 'react-router-bootstrap';
-import { FormControl, FormGroup } from 'react-bootstrap';
-import { log } from 'util';
+import {FormControl, FormGroup} from 'react-bootstrap';
+import {log} from 'util';
 class CreatListItem extends Component {
   constructor(props) {
     super(props);
-    // Define initial state
     this.state = {
       ChecklistAction: '',
       TripTypeId: '',
       remoteURL: `http://localhost:5000/api/`,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChangeChecklistAction = this.handleChangeChecklistAction.bind(
-      this
-    );
+    this.handleChangeChecklistAction = this.handleChangeChecklistAction.bind(this);
     this.handleChangeType = this.handleChangeType.bind(this);
   }
-  //   *************************************************************************************
-  //   *
-  //   *         *This function handles XHR request to the api to POST a new trip.
-  //   *
-  //   *************************************************************************************
 
   addChecklistItem = checklistItem => {
     console.log('Posting: ', checklistItem);
@@ -39,13 +31,6 @@ class CreatListItem extends Component {
     );
   };
 
-  //   *************************************************************************************
-  //   *
-  //   *         *This Block of functions are form handlers for the select form
-  //   *         * Works in tandom with the JSX to set the selected values into state.
-  //   *
-  //   *************************************************************************************
-
   handleSubmit = event => {
     event.preventDefault();
 
@@ -54,7 +39,7 @@ class CreatListItem extends Component {
       TripTypeId: this.state.TripTypeId,
     };
     console.log(checklistItem);
-    
+
     this.addChecklistItem(checklistItem);
   };
 
@@ -70,15 +55,8 @@ class CreatListItem extends Component {
     });
   };
 
-  //   *************************************************************************************
-  //   *         * R E N D E R *
-  //   * variables set for some reason, I think just for ease of passing and shorthand for some of them
-  //   *************************************************************************************
   render() {
     return (
-      //   *************************************************************************************
-      //   *         *Add a ChecklistItem form. this form collects user input for use in the API call
-      //   *************************************************************************************
       <div className="ChecklistForm">
         <form
           id="form-horizontal"
@@ -129,8 +107,14 @@ class CreatListItem extends Component {
           <br />
           <br />
           <div className="form-group">
-              <button id="addItem_button" className="btn btn-success btn-md">Add Item</button>
-              <LinkContainer to="/DisplayCheckList"><button id="addItem_button" className="btn btn-success btn-md">View Items</button></LinkContainer>
+            <button id="addItem_button" className="btn btn-success btn-md">
+              Add Item
+            </button>
+            <LinkContainer to="/DisplayCheckList">
+              <button id="addItem_button" className="btn btn-success btn-md">
+                View Items
+              </button>
+            </LinkContainer>
           </div>
         </form>
       </div>
@@ -138,13 +122,4 @@ class CreatListItem extends Component {
   }
 }
 
-// exports
 export default CreatListItem;
-
-
-// Skii
-// Cruise
-// Beach Vacation
-// Mountain Climbing
-// Business
-// Backpacking
